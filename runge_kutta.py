@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Next: need to get find_ys function to also do it for each eqn, and append another parameter to specify which equation to use in derivatives function
+
 def f1(x,y1,y2):
   return y2
 
