@@ -1,4 +1,12 @@
-def test(*argList):
-  print argList[1]
+def f1():
+  print "f1"
 
-test(1,2,3)
+def f2():
+  print "f2"
+
+functions = []
+functions.append(f1)
+functions.append(f2)
+
+for i in functions:
+  i()
