@@ -68,17 +68,15 @@ def find_ys(*argList):
 #    k3 = h * derivatives(xval + h/2, y1[-1] + k2/2, y2[-1] + k2/2)
 #    k4 = h * derivatives(xval + h, y1[-1] + k3, y2[-1] + k3)
 
-    y_results = []
-    for i,element in enumerate(argList):
-      if i > 0:
-        y_results.append(element + k1/6 + k2/3 + k3/3 + k4/6)
-    return y_results
+    y_results.append(argList[0] + k1/6 + k2/3 + k3/3 + k4/6)
+  
+  return y_results
 
 def main_routine(functions,ics,h,x_0,num_x):
   # Prepare xs to evaluate
-  x = []
+  xs = []
   for i in range(num_x):
-    x.append(x_0 + i * h)
+    xs.append(x_0 + i * h)
 
   # Prepare arrays to put y values in
   ys = []
@@ -88,6 +86,15 @@ def main_routine(functions,ics,h,x_0,num_x):
   # Put in ics as first element of y lists
   for i,element in enumerate(ys):
     element.append(ics[i])
+
+  # Run find_ys()
+  for x_i,x in enumerate(xs):
+    new_args = [x]
+    for i in ys:
+      new_args.append(i[-1])
+    y_results = find_ys(new_args)
+    for i,element in enumerate(ys):
+      element.append(y_results[i]
 
 main_routine()
 print ys
