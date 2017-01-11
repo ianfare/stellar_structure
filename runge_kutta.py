@@ -14,7 +14,8 @@ functions = [f1,f2]
 
 # Initial conditions, at x_0
 A = 1.0
-ics = [A,0.0]
+b = 1.0
+ics = [A,A*b/2]
 
 # Values of x to evaluate
 h = 0.1
@@ -29,10 +30,9 @@ x_0 = 0.0
 # Arguments should be:
 #   0  : x
 #   1+ : y_i
-def find_ys(*argList):
+def find_ys(argList):
 
   y_results = []
-
   for func_i,func in enumerate(functions):
     k1_args = []
     # x value is unchanged
@@ -94,7 +94,9 @@ def main_routine(functions,ics,h,x_0,num_x):
       new_args.append(i[-1])
     y_results = find_ys(new_args)
     for i,element in enumerate(ys):
-      element.append(y_results[i]
+      element.append(y_results[i])
 
-main_routine()
-print ys
+  return ys
+
+answer = main_routine(functions,ics,h,x_0,100)
+print answer
