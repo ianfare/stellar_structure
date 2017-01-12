@@ -1,24 +1,27 @@
 #!/usr/bin/python
 
+import csv
+import matplotlib.pyplot as plt
+
 # Next: need to get find_ys function to also do it for each eqn, and append another parameter to specify which equation to use in derivatives function
 
 def f1(x,y1,y2):
   return y2
 
 def f2(x,y1,y2):
-  b = 1.0
-  c = 2.0
-  return -b*y2 - c**2.0*y1
+  b = 0.5
+  c = 1.0
+  return -b*y2 - c*c*y1
 
 functions = [f1,f2]
 
 # Initial conditions, at x_0
 A = 1.0
-b = 1.0
+b = 0.5
 ics = [A,A*b/2]
 
 # Values of x to evaluate
-h = 0.1
+h = 0.00001
 x_0 = 0.0
 
 # Skipping this function because it's just as easy to include a line in find_ys()
@@ -68,7 +71,7 @@ def find_ys(argList):
 #    k3 = h * derivatives(xval + h/2, y1[-1] + k2/2, y2[-1] + k2/2)
 #    k4 = h * derivatives(xval + h, y1[-1] + k3, y2[-1] + k3)
 
-    y_results.append(argList[0] + k1/6 + k2/3 + k3/3 + k4/6)
+    y_results.append(argList[func_i+1] + k1/6 + k2/3 + k3/3 + k4/6)
   
   return y_results
 
@@ -92,11 +95,13 @@ def main_routine(functions,ics,h,x_0,num_x):
     new_args = [x]
     for i in ys:
       new_args.append(i[-1])
-    y_results = find_ys(new_args)
+    new_ys = find_ys(new_args)
     for i,element in enumerate(ys):
-      element.append(y_results[i])
+      element.append(new_ys[i])
 
   return ys
 
-answer = main_routine(functions,ics,h,x_0,100)
-print answer
+answer = main_routine(functions,ics,h,x_0,3000000)
+
+plt.plot(answer[0])
+plt.show()
