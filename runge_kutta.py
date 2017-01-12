@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import matplotlib.pyplot as plt
+import math
 
 def f1(x,y1,y2):
   return y2
@@ -15,7 +16,8 @@ functions = [f1,f2]
 # Initial conditions, at x_0
 A = 1.0
 b = 0.5
-ics = [A,A*b/2]
+c = 1.0
+ics = [A,-A*b/2]
 
 # Values of x to evaluate
 h = 0.00001
@@ -65,6 +67,8 @@ def find_ys(argList):
   
   return y_results
 
+analytic = []
+
 def main_routine(functions,ics,h,x_0,num_x):
   # Prepare xs to evaluate
   xs = []
@@ -82,16 +86,29 @@ def main_routine(functions,ics,h,x_0,num_x):
 
   # Run find_ys()
   for x_i,x in enumerate(xs):
-    new_args = [x]
-    for i in ys:
-      new_args.append(i[-1])
-    new_ys = find_ys(new_args)
-    for i,element in enumerate(ys):
-      element.append(new_ys[i])
+    if x_i > 0:
+      new_args = [x]
+      for i in ys:
+        new_args.append(i[-1])
+      new_ys = find_ys(new_args)
+      for i,element in enumerate(ys):
+        element.append(new_ys[i])
+
+  # Plot analytic solution
+  for i in xs:
+    analytic.append(A*math.exp(-b*i/2)*math.cos(c*i))
+
 
   return ys
 
 answer = main_routine(functions,ics,h,x_0,3000000)
 
-plt.plot(answer[0])
+# Plot analytic solution
+#analytic = []
+#for i in xs:
+#  analytic.append(A*math.exp(-b*i/2)*math.cos(c*x))
+
+plt.plot(answer[0],label="Runge-Kutta solution")
+plt.plot(analytic,label="Analytic solution")
+plt.legend()
 plt.show()
