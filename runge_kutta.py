@@ -1,9 +1,6 @@
 #!/usr/bin/python
 
-import csv
 import matplotlib.pyplot as plt
-
-# Next: need to get find_ys function to also do it for each eqn, and append another parameter to specify which equation to use in derivatives function
 
 def f1(x,y1,y2):
   return y2
@@ -24,10 +21,8 @@ ics = [A,A*b/2]
 h = 0.00001
 x_0 = 0.0
 
-# Skipping this function because it's just as easy to include a line in find_ys()
-# First subroutine to evaluate the derivatives
-#def derivatives(*args):
-#  return f(*args)
+# Skipping the first subroutine to find derivatives
+# because it's just one line, calling the functions...
 
 # Second subroutine to call derivatives, calculate ks and tys
 # Arguments should be:
@@ -65,11 +60,6 @@ def find_ys(argList):
       if i > 0:
         k4_args.append(element + k3)
     k4 = h * func(*k4_args)
-
-#    k1 = h * derivatives(xval,y1[-1],y2[-1])
-#    k2 = h * derivatives(xval + h/2, y1[-1] + k1/2, y2[-1] + k1/2)
-#    k3 = h * derivatives(xval + h/2, y1[-1] + k2/2, y2[-1] + k2/2)
-#    k4 = h * derivatives(xval + h, y1[-1] + k3, y2[-1] + k3)
 
     y_results.append(argList[func_i+1] + k1/6 + k2/3 + k3/3 + k4/6)
   
