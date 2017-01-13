@@ -20,8 +20,8 @@ c = 1.0
 ics = [A,-A*b/2]
 
 # Values of x to evaluate
-h = 0.00001
-x_0 = 0.0
+h = 0.000001
+x_lim = [0.0,20.0]
 
 # Skipping the first subroutine to find derivatives
 # because it's just one line, calling the functions...
@@ -69,11 +69,12 @@ def find_ys(argList):
 
 analytic = []
 
-def main_routine(functions,ics,h,x_0,num_x):
+def main_routine(functions,ics,h,x_lim):
   # Prepare xs to evaluate
   xs = []
+  num_x = int(math.floor((x_lim[1] - x_lim[0])/h))
   for i in range(num_x):
-    xs.append(x_0 + i * h)
+    xs.append(x_lim[0] + i * h)
 
   # Prepare arrays to put y values in
   ys = []
@@ -86,6 +87,8 @@ def main_routine(functions,ics,h,x_0,num_x):
 
   # Run find_ys()
   for x_i,x in enumerate(xs):
+    if x_i%1000000==0:
+      print str(int(math.floor((x - x_lim[0])*100/(x_lim[1]-x_lim[0])))) + "%"
     if x_i > 0:
       new_args = [x]
       for i in ys:
@@ -102,9 +105,10 @@ def main_routine(functions,ics,h,x_0,num_x):
   plt.plot(xs,analytic,label="Analytic solution")
   plt.xlabel("x")
   plt.ylabel("y_1")
+  plt.title("Runge-Kutta and Analytic Solutions from x="+str(x_lim[0])+" to x="+str(x_lim[1])+" with h="+str(h))
   plt.legend()
   plt.show()
 
   return ys
   
-main_routine(functions,ics,h,x_0,3000000)
+main_routine(functions,ics,h,x_lim)

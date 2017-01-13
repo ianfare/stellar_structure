@@ -1,0 +1,3 @@
+Next, fix:
+
+need separate k/l for y_1, y_2
