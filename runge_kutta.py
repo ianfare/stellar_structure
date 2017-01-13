@@ -98,17 +98,13 @@ def main_routine(functions,ics,h,x_0,num_x):
   for i in xs:
     analytic.append(A*math.exp(-b*i/2)*math.cos(c*i))
 
+  plt.plot(xs,ys[0],label="Runge-Kutta solution")
+  plt.plot(xs,analytic,label="Analytic solution")
+  plt.xlabel("x")
+  plt.ylabel("y_1")
+  plt.legend()
+  plt.show()
 
   return ys
-
-answer = main_routine(functions,ics,h,x_0,3000000)
-
-# Plot analytic solution
-#analytic = []
-#for i in xs:
-#  analytic.append(A*math.exp(-b*i/2)*math.cos(c*x))
-
-plt.plot(answer[0],label="Runge-Kutta solution")
-plt.plot(analytic,label="Analytic solution")
-plt.legend()
-plt.show()
+  
+main_routine(functions,ics,h,x_0,3000000)
