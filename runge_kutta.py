@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# Introductory assignment: Runge-Kutta
+# Ian Fare
+# Jan. 15, 2017
+
 import matplotlib.pyplot as plt
 import math
 
