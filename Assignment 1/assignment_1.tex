@@ -1,0 +1,58 @@
+\documentclass[iop,apj,tighten]{emulateapj}
+%\pdfoutput=1 %for arxiv submission to use pdf
+\usepackage{apjfonts} %If missing fonts, comment out this or google apjfonts to download
+\usepackage{amsmath,amstext}
+\usepackage[breaklinks,colorlinks,citecolor=blue,linkcolor=magenta]{hyperref} 
+\usepackage[all]{hypcap} %Links go to figures. This breaks deluxetables; use \capstartfalse \capstarttrue around deluxetables to fix it.
+
+\renewcommand*{\sectionautorefname}{Section} %for \autoref
+\renewcommand*{\subsectionautorefname}{Section} %for \autoref
+
+\shorttitle{Short Title}
+\shortauthors{Author et al.}
+
+\begin{document}
+
+\title{Super Awesome APJ Paper}
+\author{Ian Fare\altaffilmark{1}}
+\affil{$^1$McMaster University}
+
+\begin{abstract}
+This is a document with things in it.
+\end{abstract}
+
+\keywords{keywords}
+\maketitle
+
+\section{Section Heading}
+Yes this is a section heading, and this section has many intelligent insights in it. But I trust you could see that without me telling you, because my work outright exudes brilliance.
+
+\section{Why I'm Taking This Course And Stuff}
+I'm taking this course because I've been wanting to learn more astrophysics and practice my computation skills since first year, and I've had little chance to do either as part of schoolwork. I've really enjoyed my work for Doug on his project producing accurate atlases of globular clusters and their variable stars, but outside of summer work, I haven't really had the chance to learn about astronomy and astrophysics in a structured environment. So I'm happy to finally get the chance to do just that.
+
+Just from what I've seen so far, it looks like we'll be learning a lot of really valuable research skills in this course, which I really look forward to. When working for Doug, I grappled with IRAF and LaTeX and what not, but I was sort of figuring it out as I go along, from Google search to Google search. Through this course, it looks like I'll have a more formal environment to learn it, and evaluate my learning, and hopefully become more confident going forwards!
+
+I also just really like programming. However, while I've been doing it for research and extracurriculars and fun, I've still never done it as a major part of coursework, and so I'm sometimes self-conscious about the quality of my code. I hope that in this course I'll learn what I need to improve on in that regard, and what best practices I should learn to become a better programmer.
+
+I'm hoping to do a Master's degree in something after graduating. It'll probably be astronomy or astrophysics, because I find the problems it offers, and the skills and techniques used to solve them, really interesting and enjoyable. I also know more people in that field than in any other, so I have lots of people to talk and ask questions to, and I am becoming increasingly familiar with research. However, even now I don't want to definitively rule out any field of study. I have enjoyed computational biology, too, and studying computer science would be useful. Astro is still the most likely by far, I think, but I'll see how things go in this next year, as I really start looking at schools, the research I could be doing, and the people I could be doing it with.
+
+\section{A Famous Equation}
+Okay enough of that, here's Euler's identity:
+\begin{equation}
+e^{i\pi}=-1
+\end{equation}
+Somehow I still find it easy to confuse myself looking at that.
+
+Here have Kepler's Second Law too. I found it really cool when I learned it in a couple years ago:
+\begin{equation}
+\frac{\text{d}A}{\text{d}t}=\frac{1}{2}r^2\frac{\text{d}\theta}{\text{d}t}
+\end{equation}
+
+\section{A citation}
+Hi. Things get closer to other things \citep{newton1833philosophiae}. It's kind of weird. I used the template "Template for the Astrophysical Journal with emulateapj" by Yao-Yuan Mao \citep{website:template}, under the Creative Commons CC BY 4.0 license to make this: \url{https://www.overleaf.com/latex/templates/outdated-template-for-the-astrophysical-journal-with-emulateapj/dhpbhdftnchx#.WHyi2vErLeN}
+
+\bibliography{bibfile}
+\bibliographystyle{apj}
+
+
+\end{document}

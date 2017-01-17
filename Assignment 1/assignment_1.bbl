@@ -1,0 +1,13 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Mao(2015)}]{website:template}
+Mao, Y.-Y. 2015, Template for the Astrophysical Journal with emulateapj
+
+\bibitem[{Newton {et~al.}(1833)Newton, Bernoulli, MacLaurin, \&
+  Euler}]{newton1833philosophiae}
+Newton, I., Bernoulli, D., MacLaurin, C., \& Euler, L. 1833, Philosophiae
+  naturalis principia mathematica, Vol.~1 (excudit G. Brookman; impensis TT et
+  J. Tegg, Londini)
+
+\end{thebibliography}

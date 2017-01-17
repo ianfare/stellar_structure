@@ -19,8 +19,8 @@ def f1(x,y1,y2):
   return y2
 
 def f2(x,y1,y2):
-  b = 1.0
-  c = 5.0
+  b = 3.0
+  c = 2.0
   return -b*y2 - c**2*y1
 
 # Add them to the functions list
@@ -28,8 +28,8 @@ functions = [f1,f2]
 
 # Define initial conditions, at the lower bound of x
 A = 1.0
-b = 1.0
-c = 5.0
+b = 3.0
+c = 2.0
 ics = [A,-A*b/2]
 
 # Specify domain to run, and h
