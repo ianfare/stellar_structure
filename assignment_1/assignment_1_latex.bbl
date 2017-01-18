@@ -1,6 +1,9 @@
 \begin{thebibliography}{}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
+\bibitem[{{JeongAhn} \& {Malhotra}(2017)}]{2017arXiv170103096J}
+{JeongAhn}, Y., \& {Malhotra}, R. 2017, ArXiv e-prints, arXiv:1701.03096
+
 \bibitem[{Mao(2015)}]{website:template}
 Mao, Y.-Y. 2015, Template for the Astrophysical Journal with emulateapj
 
@@ -9,5 +12,12 @@ Mao, Y.-Y. 2015, Template for the Astrophysical Journal with emulateapj
 Newton, I., Bernoulli, D., MacLaurin, C., \& Euler, L. 1833, Philosophiae
   naturalis principia mathematica, Vol.~1 (excudit G. Brookman; impensis TT et
   J. Tegg, Londini)
+
+\bibitem[{{\"O}pik(1951)}]{opik1951collision}
+{\"O}pik, E.~J. 1951, in Proceedings of the Royal Irish Academy. Section A:
+  Mathematical and Physical Sciences, Vol.~54, JSTOR, 165--199
+
+\bibitem[{Wetherill(1967)}]{wetherill1967collisions}
+Wetherill, G. 1967, Journal of Geophysical Research, 72, 2429
 
 \end{thebibliography}
