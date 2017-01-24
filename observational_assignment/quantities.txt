@@ -1,0 +1,40 @@
+Quantity,obj720,obj724
+fwhm,3.808,3.659
+read_noise,
+gain,
+min_good_data_val,
+max_good_data_val,32000,32000
+std_dev_background,
+centroid_algorithm,centroid,centroid
+size_centroid_box,
+inner_radius_sky_annulus,
+width_sky_annulus,
+size_aperture,
+
+
+Finding fwhm: average of 10:
+obj720: avg = 3.808
+~~~~~~
+3.88
+3.77
+3.92
+3.93
+3.55
+3.72
+3.81
+3.82
+3.78
+3.90
+
+obj724: avg = 3.659
+~~~~~~
+3.79
+3.70
+3.58
+3.67
+3.61
+3.60
+3.68
+3.68
+3.66
+3.62
