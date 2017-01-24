@@ -1,15 +1,46 @@
 Quantity,obj720,obj724
 fwhm,3.808,3.659
-read_noise,
-gain,
-min_good_data_val,
+read_noise,3.725,3.725
+gain,2.425,2.425
+min_good_data_val,8.175,8.175
 max_good_data_val,32000,32000
-std_dev_background,
+std_dev_background,4.228,4.228
 centroid_algorithm,centroid,centroid
-size_centroid_box,
-inner_radius_sky_annulus,
+size_centroid_box,7.616,7.318
+inner_radius_sky_annulus,20.232,19.646
 width_sky_annulus,
-size_aperture,
+size_aperture,15.232,14.636
+
+sky background,4,4
+
+
+Finding gain: average of 4 quadrants:
+obj720: avg = 2.425
+~~~~~~
+2.400
+2.400
+2.400
+2.500
+
+obj724: same
+
+
+
+Finding read noise: average of 4 quandrants:
+obj720: avg = 3.725
+~~~~~~
+3.600
+3.600
+3.900
+3.800
+
+obj724: avg = 3.725
+~~~~~~
+3.600
+3.600
+3.900
+3.800
+
 
 
 Finding fwhm: average of 10:
