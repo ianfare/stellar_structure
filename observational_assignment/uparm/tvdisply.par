@@ -1,4 +1,4 @@
-image,f,a,"",,,"image to be displayed"
+image,f,a,"obj720.fits",,,"image to be displayed"
 frame,i,a,1,1,16,"frame to be written into"
 bpmask,f,h,"BPM",,,"bad pixel mask"
 bpdisplay,s,h,"none",none|overlay|interpolate,,"bad pixel display (none|overlay|interpolate)"

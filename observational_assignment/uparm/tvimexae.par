@@ -1,4 +1,4 @@
-input,s,a,"obj724.fits",,,"images to be examined"
+input,s,a,"obj720.fits",,,"images to be examined"
 output,s,h,"",,,"output root image name"
 ncoutput,i,h,101,1,,"Number of columns in image output"
 nloutput,i,h,101,1,,"Number of lines in image output"

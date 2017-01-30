@@ -4,14 +4,35 @@ read_noise,3.725,3.725
 gain,2.425,2.425
 min_good_data_val,8.175,8.175
 max_good_data_val,32000,32000
-std_dev_background,4.228,4.228
+std_dev_background,17.26675,110.648726
 centroid_algorithm,centroid,centroid
 size_centroid_box,7.616,7.318
 inner_radius_sky_annulus,20.232,19.646
 width_sky_annulus,
 size_aperture,15.232,14.636
 
-sky background,4,4
+sky background,285,12230
+
+
+
+Getting good .coo
+For obj724.fits:
+  By default: missing locations of bright stars
+  Tried reducing threshold.
+    No change for a while, then lots of extra stars
+    (Bright stars still missing)
+  Then, tried increasing max good to 100000
+    Bright stars appeared
+    Missing a few dim ones, though
+  Decreased threshold to 2 sigma
+    Looks good
+
+
+
+
+
+
+
 
 
 Finding gain: average of 4 quadrants:
