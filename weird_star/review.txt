@@ -1,1 +1,21 @@
-Kenyon et al. 1999 introduction contains a good review 
+*~~~~~~~~~~~~~~ Notes from the Literature about Fu Orionis Stars ~~~~~~~~~~~~~~*
+
+Sills: Hartmann is "a big name in the field"
+
+Kenyon et al. 1999: introduction contains a good review
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Hartmann and Kenyon 1985: model of Fu Ori stars
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Outburst of Fu Ori stars is caused by rapid accretion.
+
+At maximum, most light is emission from hot, optically thick accretion disk.
+
+Accreted material is from a surrounding protostellar nebula, rather than a 
+companion star: no radial velocity variations
+
+Model: weak absorption lines should be double-peaked. Spectra of V1057 Cyg 
+shows double-peaked profiles in red photospheric lines.
+
+
