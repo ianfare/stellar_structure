@@ -1,3 +1,7 @@
+To choose a thing to propose:
+  look for easy suggestions at the end of papers
+    (a couple more observations, etc.)
+
 *~~~~~~~~~~~~~~ Notes from the Literature about Fu Orionis Stars ~~~~~~~~~~~~~~*
 
 Sills: Hartmann is "a big name in the field"
@@ -8,14 +12,43 @@ Kenyon et al. 1999: introduction contains a good review
 
 Hartmann and Kenyon 1985: model of Fu Ori stars
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Abstract:
 Outburst of Fu Ori stars is caused by rapid accretion.
-
 At maximum, most light is emission from hot, optically thick accretion disk.
-
-Accreted material is from a surrounding protostellar nebula, rather than a 
-companion star: no radial velocity variations
-
+Accreted material is from a surrounding protostellar nebula, rather than 
+a companion star: no radial velocity variations
 Model: weak absorption lines should be double-peaked. Spectra of V1057 Cyg 
 shows double-peaked profiles in red photospheric lines.
+Massive winds from Fu Ori are from luminous disk surface
+  Ejection from disk produces winds w/ appropriate geometry for bipolar outflow
+  
+Introduction:
+Characteristics of Fu Ori:
+  Increase (~5-6) of visual brightness, remain luminous for years/decades
+  Peculiar spectra:
+    Optical looks like rotating G supergiant
+    Near-infrared looks like M star
+Larson (1980): outburst energy from rapid rotation in early stellar evolutoin
+  b/c progenitors are low-mass, pre-MS
+Herbig 1977: subsurface nuclear reactions, strong magnetic fields
+However, neither of these models accounts for peculiarities in a simple way
+This paper:
+  Accretion is responsible for FU Ori.
+  Hot, optically thick accretion disk dominates observed spectrum
+  Explains energy source for outburst, rise time of outburst, UV excess, M 
+   spect. in infrared, colour evolution during decay from max light
+  Predicts double-peaked profiles for photospheric lines
+    (observations see that too)
+    
+Double peaked line profiles:
 
+Wavelength dependence of line profiles:
+Double peaks occur in red but not blue
+
+    
+Accretion disk model:
+Explain outburst, wavelength dependence of spectrum, doubled profiles
+Radial surface temp. gradient of disk -> wavelength dependence
+Rotating disk -> double peaked line profiles
 
