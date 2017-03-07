@@ -1,0 +1,73 @@
+\documentclass[iop,apj,tighten]{emulateapj}
+%\pdfoutput=1 %for arxiv submission to use pdf
+\usepackage{fancyhdr}
+\usepackage{apjfonts} %If missing fonts, comment out this or google apjfonts to download
+\usepackage{amsmath,amstext}
+\usepackage[breaklinks,colorlinks,citecolor=blue,linkcolor=magenta]{hyperref} 
+\usepackage[all]{hypcap} %Links go to figures. This breaks deluxetables; use \capstartfalse \capstarttrue around deluxetables to fix it.
+
+\renewcommand*{\sectionautorefname}{Section} %for \autoref
+\renewcommand*{\subsectionautorefname}{Section} %for \autoref
+
+\shorttitle{Searching for flickering V346 Normae}
+\shortauthors{Fare, I.}
+
+\pagestyle{fancy}
+\rhead{Ian Fare}
+
+\fancypagestyle{firststyle}
+{
+   \fancyhf{}
+   \fancyfoot[C]{\footnotesize Page \thepage\ of \pageref{LastPage}}
+}
+
+\begin{document}
+
+\newpage
+
+\title{Characterizing the photometric variability and accretion disk of V346 Normae}
+\author{Ian Fare\altaffilmark{1}}
+\affil{$^1$McMaster University}
+
+\begin{abstract}
+Lorem Ipsum
+\end{abstract}
+
+\keywords{keywords}
+\maketitle
+\thispagestyle{fancy}
+
+\section{Recent progress}
+FU Orionis stars are those that have exhibited a dramatic outburst, increasing in brightness by up to six magnitudes over periods of hundreds of days to multiple decades. After reaching maximum brightness, they maintain that brightness, or decline slightly (by one or two magnitudes) over 10\textsuperscript{2} to 10\textsuperscript{3} years \citep{hartmann_fu_1996}. This outburst is attributed to an increased rate of mass accretion onto a star, initiated by an instability in the inner regions of its circumstellar accretion disk \citep{turner_models_1997}. The outburst of FU Orionis stars an important event in the early evolution of certain stars, possibly including the Sun \citep{herbig_eruptive_1977}, and may provide insights into the formation of planetary systems \citep{turner_models_1997}.
+
+Recently, advancements have been made in the characterizing the accretion disk of FU Orionis stars by analyzing their photometric variability. \cite{kenyon_flickering_2000} noted that while accretion disks very commonly exhibit flickering (random brightness fluctuations, with an amplitude of 0.01 to 1.0 magnitudes, and on dynamical timescales), such that flickering is their "signature", flickering behaviour had never been observed in FU Orionis stars. They analyzed the short-term variability of FU Orionis's light curve, looking for flickering, and in doing so they gained some hints about the properties of the accretion disk. They found variability, with no sign of periodicity, on the time scale of $\leq$ 1 day, accompanied by correlated variations in the star's colour indices. The variations in the colour indices had the optical colours of a G0 supergiant, with a temperature of approximately 6000K. From this piece of information, some interesting properties of the accretion disk were inferred. Kenyon et al. determined that using a simple, steady disk model, the observed colour variation can only be produced when specific annuli in the accretion disk, corresponding to the colours of F9 to G1 supergiants, are allowed to vary. However, in simply steady disk models, these annuli occur at a radius of about $R=2.5R_{*}$, with a maximum temperature annulus at $R=1.36R_{*}$. However, there are hotter annuli, at temperatures of 6500-7000K, at smaller radii. These hotter annuli at smaller radii ought to exhibit larger variation than cooler annuli at larger radii, if the simple steady disk model is accurate. Since the flickering is not exhibited at these temperatures, the simple steady disk model is unable to predict the observed flickering behaviour.
+
+Instead, the flickering behaviour is explainable by models that assume an optically thicker disk. These models predict peak temperatures of approximately 7000K at radii of $R=1.1-1.2R_{*}$. Importantly, they also predict disk temperatures of approximately 5000-6000K immediately outside the star's photosphere, at radii smaller than that of the peak temperature. With temperatures comparable to the flickering source occurring immediately outside the photosphere, it is permissible for variation to occur specifically in the observed colours. Thus, the observation of a 6000K flickering source characterizes the accretion disk in two ways: first, it serves as evidence in favour of models with optically thick accretion disks around FU Orionis stars, and second, it indicates that the flickering source is the inner edge of the accretion disk, very near to the star, between the star's photosphere and the maximum temperature annulus. In order to produce the observed fickering, it is this inner edge of the accretion disk that must have exhibit rapid, large-scale changes in physical structure. The authors conclude the paper by stating that with higher-precision photometry investigating this flickering, it will be possible to probe in greater detail the conditions of the accretion disk.
+
+The question of small-scale photometric variability in FU Orionis was investigated again by \cite{siwak_photometric_2013}. They characterized its variability by conducting wavelet analysis on photometric observations by the MOST satellite. They confirmed the result if \cite{kenyon_flickering_2000}, concerning the temperature of the source of small-scale variability (i.e. flickering), while also finding several different quasi-periodic features with periods of two to nine days. Over the course of the 28 days during which the observations took place, their periods shorten slightly, with 9-day features shortening to 8 days, and 2.4-day features shortening to 2.2 days. These features are similar to those seen in the T Tauri star TW Hydrae by \cite{rucinski_photometric_2008} and \cite{siwak_analysis_2011}; they are intepreted to be inhomogeneities in the accretion disk, such as plasma concentrations, produced by interactions between the star's magnetic field and the plasma of the inner edge of the accretion disk. The gradual decrease in period occurs as these plasma concentrations spiral towards the centre of the accretion disk.
+
+Both \cite{kenyon_flickering_2000} and \cite{siwak_photometric_2013} have been characterizing the accretion disk around FU Orionis by analyzing its small-scale photometric variability. These methods have great potential for use in characterizing another star of the FU Orionis type: V346 Normae. V346 Normae exhibited a strong outburst, like other members of the FU Orionis type, around 1980. Then, between the 1990s and 2010, its visual/near-infrared brightness decreased dramatically, indicating a drop of several orders of magnitude in accretion rate. V346 Normae was thus the first variable star to be observed as its outburst ends, transitioning from its high-accretion state back to a low-accretion, post-outburst state. And since 2011, it has been growing brighter once again, entering a second outburst \citep{kraus_v346_2016}. V346 Normae is unique among FU Orionis-type stars, being the first to have its outburst end, and further, being the first to have a second outburst start. 
+
+\section{Objectives}
+It would be very informative to know what the accretion disk around V346 Normae is like as it enters its second outburst, since, after all, the outbursts are a results of increased accretion. The objective of this project is to continuously analyze the small-scale photometric variability of V346 Normae as it is entering its second observed outburst, in order to infer the properties of the accretion disk, and how they change, over the course of the outburst's initiation. Ultimately, in characterizing the accretion disk, and its changes over time as the outburst begins, we will gain a better understanding of the processes that underlie the outbursts of FU Orionis stars.
+
+\section{Literature review}
+(I am still trying to figure out how to divide things between this "Literature review" section and the previous "Recent progress" section. Maybe this should have more background info on FU Orionis stars and how they work, as opposed to recent tentative findings)
+
+\section{Methodology}
+The analysis of the small-scale photometric variations of V346 Normae will require its monitoring from multiple sources, preferably for as long as its brightness continues to increase. 
+
+First, it will be necessary to model the large-scale increase in brightness (i.e. the outburst itself), so that the small-scale variations can be subtracted from it. This is because the small-scale variations are individual measurements' residuals from the large-scale increase. Since the large-scale increase in brightness spans several years, the observations used to model it need not be frequent, on the order of individual days. Following the example of \cite{kenyon_flickering_2000}, visual observation by members of the American Association of Variable Star Observers (AAVSO) is sufficient to establish a long-term light curve to model the outburst on a large scale. A request for observations will be made to the AAVSO, and observers worldwide will help construct a long-term light curve for the construction of this model. (Strictly speaking, observers at latitudes between +30 and -90 degrees will help)
+
+At the same time, a request will be sent for the Mount John University Observatory 61cm telescope (OC61), one of the AAVSOnet network of robotically controlled telescopes, to, for one week each month, observe V346 Normae once each night with Johnson-Cousins B and V filters. These observations are those that will pick up on the small-scale photometric variations to be analyzed. It is necessary to take frequent (i.e. each night) observations, since the small-scale variations occur on that scale. At the same time, requests for observations should be kept somewhat modest. Thus, nightly observations  for one week each month (preferably for as long as V346 Normae continues to increase in brightness) allow for continuous monitoring, at the required frequency, sampling evenly through time. The purpose of the previously discussed visual observations by AAVSO members is to fill the gaps between these periods with lower-frequency and perhaps less precise measurements, that are nonetheless sufficient to model the long-term increase in brightness.
+
+\section{Impact}
+Very impactful.
+
+\newpage
+
+\bibliography{bibfile}
+\bibliographystyle{apj}
+
+
+\end{document}

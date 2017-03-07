@@ -1,0 +1,41 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Hartmann \& Kenyon(1996)}]{hartmann_fu_1996}
+Hartmann, L., \& Kenyon, S.~J. 1996, Annual Review of Astronomy and
+  Astrophysics, 34, 207
+
+\bibitem[{Herbig(1977)}]{herbig_eruptive_1977}
+Herbig, G.~H. 1977, The Astrophysical Journal, 217, 693
+
+\bibitem[{Kenyon {et~al.}(2000)Kenyon, Kolotilov, Ibragimov, \&
+  Mattei}]{kenyon_flickering_2000}
+Kenyon, S.~J., Kolotilov, E.~A., Ibragimov, M.~A., \& Mattei, J.~A. 2000, The
+  Astrophysical Journal, 531, 1028
+
+\bibitem[{Kraus {et~al.}(2016)Kraus, Caratti~o Garatti, Garcia-Lopez, Kreplin,
+  Aarnio, Monnier, Naylor, \& Weigelt}]{kraus_v346_2016}
+Kraus, S., Caratti~o Garatti, A., Garcia-Lopez, R., {et~al.} 2016, Monthly
+  Notices of the Royal Astronomical Society, 462, L61
+
+\bibitem[{Rucinski {et~al.}(2008)Rucinski, Matthews, Kuschnig, Pojmański,
+  Rowe, Guenther, Moffat, Sasselov, Walker, \&
+  Weiss}]{rucinski_photometric_2008}
+Rucinski, S.~M., Matthews, J.~M., Kuschnig, R., {et~al.} 2008, Monthly Notices
+  of the Royal Astronomical Society, 391, 1913
+
+\bibitem[{Siwak {et~al.}(2011)Siwak, Rucinski, Matthews, Pojmański, Kuschnig,
+  Guenther, Moffat, Sasselov, \& Weiss}]{siwak_analysis_2011}
+Siwak, M., Rucinski, S.~M., Matthews, J.~M., {et~al.} 2011, Monthly Notices of
+  the Royal Astronomical Society, 410, 2725
+
+\bibitem[{Siwak {et~al.}(2013)Siwak, Rucinski, Matthews, Kuschnig, Guenther,
+  Moffat, Rowe, Sasselov, \& Weiss}]{siwak_photometric_2013}
+---. 2013, Monthly Notices of the Royal Astronomical Society, 432, 194
+
+\bibitem[{Turner {et~al.}(1997)Turner, Bodenheimer, \&
+  Bell}]{turner_models_1997}
+Turner, N. J.~J., Bodenheimer, P., \& Bell, K.~R. 1997, The Astrophysical
+  Journal, 480, 754
+
+\end{thebibliography}

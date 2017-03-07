@@ -1,0 +1,144 @@
+Searching for flickering in V346 Normae
+=======================================
+
+Flickering: random brightness fluctuations, 0.01 - 1.0 magnitudes
+            dynamical timescales, not periodic
+            "signature" of disk accretion
+            from dynamical variation of energy output of disk
+            Properties (Robinson 1976; Bruch 1992)
+            
+            Gives information on fluctuations in physical structure of disk, 
+            and may serve as diagnostic of properties
+            (Bruch & Duschl 1993; Bruch 1994; Warner 1995)
+            
+            These are cited by (Kenyon et al., 2000)
+            
+
+(Kenyon et al., 2000)
+~~~~~~~~~~~~~~~~~~~~~
+(Cites papers on flickering <-> accretion disk, and gives methods for studying 
+flickering)
+
+Summary
+-------
+Previously to (Kenyon et al., 2000), there had not been flickering observed in a 
+FU Ori. However, there *should* be flickering; it is present in most systems 
+with luminous accretion disks. 
+
+Kenyon et al. searched for flickering in historical light curve of FU Ori. Found 
+small-amplitude fluctuations on timescales of <= 1 day. The star changed colour 
+as it changed in brightness, indicating (?) variable source, optical colours of 
+G0 supergiant. Characteristics of variation are similar to short-period 
+interacting binary systems. Kenyon et al. somehow used characteristics of 
+flickering to rule out sources of the variation, in favour of flickering at the 
+inner edge of the accretion disk: temperatures between stellar temp. and 
+maximum disk temp., ~7000K.
+
+Observations
+------------
+60cm Zeiss reflector, 13" aperture, 27" when poor seeing
+  uncertainty +/- 0.01-0.02 mag for V, +/- 0.02-0.04 mag for U-B
+Maidanak High Altitude Observatory
+  +/- 0.015 mag for V and V-R, +/- 0.02 mag for B-V, +/- 0.04-0.08 mag for U-B
+Visual observations from AAVSO
+  +/- 0.1-0.2 mag
+  Comparison with photoelectric data: 20 day means over 7000 observations
+    Reduces error to ~0.03 mag
+    
+Light curve analysis
+--------------------
+5-6 mag rise is recorded in blue filter
+Then, decline ~1 mag over almost 70 yrs
+
+
+Outburst model
+--------------
+Lines are fit to blue and AAVSO Visual historical light curves.
+For blue, fit begging with outburst (although data is scarce)
+For visual, no observations of outburst; line fit only to gradual dimming
+To find fluctuation timescale in the next section, will use residuals from these
+
+Fluctuation timescale
+---------------------
+Monte Carlo model: Kolmogorov-Smirnov (K-S) test
+To compare artificial light curve with nonperiodic fluctuation (flickering). 
+Best match: highest probability of being drawn randomly from the same 
+distribution as data.
+Observation frequency is ~1/day, 0.5/day, 0.333/day
+Fluctuations must be <=1 day time scale based on success of the Monte Carlo 
+model
+They're flickering and not measurement error because of color variations:
+  Fluctuations in V are accompanied by correlated variations in colour indices
+  
+Colour variations
+----------------
+There are considerable short term variabions, but no long-term variation
+As source brightens, (B - V) redder and (V - R) bluer (this is robust)
+
+Physical nature of light and colour variations
+----------------------------------------------
+Average colours are offset from standard stellar loci of F and G supergiants
+Best match to changes in brightness and colour: G0 supergiant
+Explanation for colour variations?
+First, consider alternative explanations for colour variations, other than the 
+accretion disk/flickering:
+  Obscuration
+    Small intervening dust cloud near star: popular model for other pre-MS
+    Unlikely because: would need unusual particles for steep reddening law
+    ***Photopolarimetry would test*** (read more if interested)
+  Pulsation
+    Amplitude similar to what we see
+    ***5 hr period too short for these observations***
+    BUT: FU Ori lies well above pre-MS instability strip in HR diagram
+    AND: failed to detect any periodicity in FU Ori light curve
+  Rotation
+    Small amplitude, period 1-2 days plausibly produce similar variation
+    Unlikely because in order to rotate fast enough, fast enough to break up
+Instead, variations have a lot in common with flickering in other accreting 
+systems: cataclysmic variables, low-mass X-ray binary systems
+  Similar magnitude fluctuation in seconds to minutes, in inner disk
+  Within each flicker, CV becomes bluer as it gets brighter
+  Large colour temperature: flickering occurs in inner disk
+  Lack of physical model in CV, but probes physical conditions
+FU Ori variations plausibly at inner regions of accretion disk
+  Time scale <=1 day, close to dynamical timescale of inner disk
+  Temperature of variable source (~6000K for G0 supergiant) comparable to inner 
+  disk temp. of 6500K
+  Amplitude of variation similar to that observed in other accreting systems
+  Therefore, FU Ori flickering
+Alternative to flickering inner accretion disk:
+  Magnetic accretion column
+    Successful in other pre=MS stars
+    But, FU Ori's variable source temp. of ~6000K is too cool
+    
+What can we learn about inner disk from variations?
+Consider simple models for flickering
+(will need to read again for more details if pursuing this)
+Models where entire disk varies in brightness don't reproduce observations
+Models with random flucuations in flux from any annulus also don't work
+Instead:
+Successful models allow only specific parts of the disk to vary in brightness
+  Disk annuli w/ colours of F9-G1 supergiants vary:
+    colour variation of model follows slope of observed colour variation
+At odds with steady disk models:
+  In those, disk temp. rises sharply from star, then decreases outward
+  G0 temp of flickering sourcehas temp. of 6000K.
+  Disk material with this temp has R=2.5 R(sun?) in steady model
+  Fluctuations in energy output here, and lack of fluctuations in hotter disk, 
+  unlikely. There should be larger variations at smaller disk radii
+Inner regions of disks of FU Ori may be different than this simple disk model:
+  Thicker
+  Other disk models predict temp that peaks just outside photosphere:
+    R=1.1-1.2(Rsun?)
+  Decline in disk temp at smaller radii: 25%-50%
+  So, disk temp. close to central star: 5000-6000K, closer to temp of 
+  flickering source
+  So, flickering source of FU Ori between photosphere and peak temp in disk
+    This region produces ~5% of total light
+    So, observable variations imply large changes in inner disk structure
+    Data for FU Ori require 50% variations in light output of inner disk
+
+So, ideas for research:
+High-precision photometry of flickering -> physical conditions of inner disk
+Large fluctuations in physical structure on short timescales
+Theoretical models don't yet address rapid fluctuation like this
