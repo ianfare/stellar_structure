@@ -255,10 +255,9 @@ def main_routine(functions,ics,h,x_lim):
 #  plt.ylabel("t")
 #  plt.show()
 
-  if np1[-1] < 3:
-    print pc
-    print min(np1)
-    print ""
+#  if np1[-1] < 3:
+  with open("./np1.txt","a") as f:
+    f.write(str(pc)+"\n"+str(min(np1))+"\n"+str(np1[-1])+"\n\n")
 
   return ys
   
