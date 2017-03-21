@@ -51,8 +51,9 @@ functions = [f1,f2,f3,f4]
 ics = [q_0,p_0,f_0,t_0]
 
 # Specify domain to run, and h
+# h = 0.0001: pc = 0.712080798960425
 h = 0.0001
-x_lim = [x_0,15.0]
+x_lim = [x_0,20.0]
 
 ###########################################################
 ###########################################################
@@ -217,7 +218,7 @@ def main_routine(functions,ics,h,x_lim):
   #  print ""
 
   # Plot Runge Kutta
-#  plt.plot(Us,Vs,label="Runge-Kutta solution")
+  plt.plot(Us,Vs,label="Runge-Kutta solution")
 
   # Plot uv integrations
   uvint_data = parse_int()
@@ -227,13 +228,13 @@ def main_routine(functions,ics,h,x_lim):
     for point in track:
       track_Us.append(point[0])
       track_Vs.append(point[1])
-#    plt.plot(track_Us,track_Vs,label="UV integrations")
+    plt.plot(track_Us,track_Vs,label="UV integrations")
 
-#  plt.xlabel("U")
-#  plt.ylabel("V")
+  plt.xlabel("U")
+  plt.ylabel("V")
 #  plt.title("Runge-Kutta and Analytic Solutions from x="+str(x_lim[0])+" to x="+str(x_lim[1])+"\nwith b=" +str(b)+",c="+str(c)+",h="+str(h))
 #  plt.legend()
-#  plt.show()
+  plt.show()
 #  plt.close()
 #  plt.plot(xs,ys[0])
 #  plt.xlabel("x")
@@ -250,12 +251,13 @@ def main_routine(functions,ics,h,x_lim):
 #  plt.ylabel("f")
 #  plt.show()
 #  plt.close()
-#  plt.plot(xs,ys[3])
-#  plt.xlabel("x")
-#  plt.ylabel("t")
-#  plt.show()
-
-  if np1[-1] < 10:
+  plt.plot(xs,ys[3])
+  plt.xlabel("x")
+  plt.ylabel("t")
+  plt.show()
+  print min(np1)
+  if min(np1) < np1[0]:
+    print "!"
     with open("./np1.txt","a") as f:
       f.write(str(pc)+"\n"+str(min(np1))+"\n"+str(np1[-1])+"\n\n")
 
