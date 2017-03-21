@@ -16,28 +16,28 @@ import math
 # Define any number of functions
 # i.e. the RHS of ODEs
 
-pc = 0.712
+pc = 0.71205
 
 x_0 = 0.01
-q_0 = 1/3*pc*x_0**3
-p_0 = pc - 1/6*pc**2*x_0**2
-f_0 = 1/3*pc**2*x_0**3
-t_0 = 1 - 1/6*pc**4*x_0**4
+q_0 = 1.0/3.0*(pc*x_0**3.0)
+p_0 = pc - 1.0/6.0*(pc**2.0*x_0**2.0)
+f_0 = 1.0/3.0*(pc**2.0*x_0**3.0)
+t_0 = 1.0 - 1.0/6.0*(pc**4.0*x_0**4.0)
 
 # x first, then q, then p, then f, then t
 # order of arguments is important
 
 def f1(x,q,p,f,t):
-  return p*x**2/t
+  return p*x**2.0/t
 
 def f2(x,q,p,f,t):
-  return -p*q/(t*x**2)
+  return -p*q/(t*x**2.0)
 
 def f3(x,q,p,f,t):
-  return p**2*t**2*x**2
+  return p**2*t**2.0*x**2.0
 
 def f4(x,q,p,f,t):
-  return -p**2*f/(t**(8.5)*x**2)
+  return -p**2.0*f/(t**(8.5)*x**2.0)
 
 # Add them to the functions list
 functions = [f1,f2,f3,f4]
@@ -47,7 +47,7 @@ ics = [q_0,p_0,f_0,t_0]
 
 # Specify domain to run, and h
 h = 0.0001
-x_lim = [x_0,10]
+x_lim = [x_0,15.0]
 
 ###########################################################
 ###########################################################
@@ -125,6 +125,41 @@ def find_ys(argList):
   # Return the newly calculated y values
   return y_results
 
+def parse_int():
+  # Read UV integration data
+  uvint_data = []
+  with open("uvintegrations.dat","r") as f:
+    uvint_file = f.read()
+  for char in uvint_file:
+    if char == "T":
+      uvint_data.append([])
+    elif len(uvint_data) > 0:
+      if char == "\n":
+        uvint_data[-1].append([])
+      elif len(uvint_data[-1]) > 0:
+        uvint_data[-1][-1].append(char)
+
+  # Parse UV integration data into:
+  # uvint_data[i][j]
+  #   i = E value
+  #   j = point = [U,V]
+  for i in uvint_data:
+    for j in range(len(i)):
+      i[j]="".join(i[j]).split(" ")
+      for k in range(10):
+        if "" in i[j]:
+          i[j].remove("")
+      for k in range(len(i[j])):
+        i[j][k] = float(i[j][k])
+    for k in range(10):
+      if [] in i:
+        i.remove([])
+  
+  return uvint_data
+
+#  for i in uvint_data[0]:
+#    print i
+
 # Main routine:
 #   1) Prepares x values to evaluate
 #   2) Prepares lists as elements of list for y_i values
@@ -163,13 +198,28 @@ def main_routine(functions,ics,h,x_lim):
   # Remember, order is q,p,f,t
   Us = []
   Vs = []
+  np1 = []
   for point in range(len(ys[0])):
-    if point > 10:
-      Us.append(ys[1][point]*xs[point]**3/(ys[3][point]*ys[0][point]))
-      Vs.append(ys[0][point]/(ys[3][point]*xs[point]))
+#    if point > 10:
+    Us.append(ys[1][point]*xs[point]**3.0/(ys[3][point]*ys[0][point]))
+    Vs.append(ys[0][point]/(ys[3][point]*xs[point]))
+    np1.append(ys[3][point]**(8.5)*ys[0][point]/(ys[1][point]**2*ys[2][point]))
 
-  # Plot stuff
+  print np1[-1]
+
+  # Plot Runge Kutta
   plt.plot(Us,Vs,label="Runge-Kutta solution")
+
+  # Plot uv integrations
+  uvint_data = parse_int()
+  for track in uvint_data:
+    track_Us = []
+    track_Vs = []
+    for point in track:
+      track_Us.append(point[0])
+      track_Vs.append(point[1])
+    plt.plot(track_Us,track_Vs,label="UV integrations")
+
   plt.xlabel("U")
   plt.ylabel("V")
 #  plt.title("Runge-Kutta and Analytic Solutions from x="+str(x_lim[0])+" to x="+str(x_lim[1])+"\nwith b=" +str(b)+",c="+str(c)+",h="+str(h))
