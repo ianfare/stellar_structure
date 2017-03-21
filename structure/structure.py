@@ -6,6 +6,7 @@
 
 import matplotlib.pyplot as plt
 import math
+import sys
 
 ###########################################################
 ###########################################################
@@ -16,11 +17,14 @@ import math
 # Define any number of functions
 # i.e. the RHS of ODEs
 
-pc = 0.71205
+#pc = 0.712
+#pc = 0.7120754429
+pc = float(sys.argv[1])
+#pc = 0.712081097
 
 x_0 = 0.01
 q_0 = 1.0/3.0*(pc*x_0**3.0)
-p_0 = pc - 1.0/6.0*(pc**2.0*x_0**2.0)
+p_0 = pc - 1.0/6.0*((pc**2.0)*(x_0**2.0))
 f_0 = 1.0/3.0*(pc**2.0*x_0**3.0)
 t_0 = 1.0 - 1.0/6.0*(pc**4.0*x_0**4.0)
 
@@ -31,13 +35,14 @@ def f1(x,q,p,f,t):
   return p*x**2.0/t
 
 def f2(x,q,p,f,t):
-  return -p*q/(t*x**2.0)
+  return -1*p*q/(t*(x**2.0))
 
 def f3(x,q,p,f,t):
-  return p**2*t**2.0*x**2.0
+  return (p**2.0)*(t**2.0)*(x**2.0)
 
 def f4(x,q,p,f,t):
-  return -p**2.0*f/(t**(8.5)*x**2.0)
+  return -1*(p**2.0)*f/((t**(8.5))*(x**2.0))
+#  return -p**2.0*f/(t**(2.5)*x)
 
 # Add them to the functions list
 functions = [f1,f2,f3,f4]
@@ -90,11 +95,11 @@ def find_ys(argList):
   for func_i,func in enumerate(functions):
     k2_args = []
     # Add the previous x value + h/2 to the function's arguments
-    k2_args.append(argList[0] + h/2)
+    k2_args.append(argList[0] + h/2.0)
     # Add all the y values + (k1,i)/2 to the function's arguments
     for i,element in enumerate(argList):
       if i > 0:
-        k2_args.append(element + k1[i-1]/2)
+        k2_args.append(element + k1[i-1]/2.0)
     # Call the functions, and record k values for each
     k2.append(h * func(*k2_args))
 
@@ -102,10 +107,10 @@ def find_ys(argList):
   # Calculate k_3,i, as above
   for func_i,func in enumerate(functions):
     k3_args = []
-    k3_args.append(argList[0] + h/2)
+    k3_args.append(argList[0] + h/2.0)
     for i,element in enumerate(argList):
       if i > 0:
-        k3_args.append(element + k2[i-1]/2)
+        k3_args.append(element + k2[i-1]/2.0)
     k3.append(h * func(*k2_args))
 
   k4 = []
@@ -120,7 +125,7 @@ def find_ys(argList):
 
   # Calculate the new y_i values 
   for func_i,func in enumerate(functions):
-    y_results.append(argList[func_i+1] + k1[func_i]/6 + k2[func_i]/3 + k3[func_i]/3 + k4[func_i]/6)
+    y_results.append(argList[func_i+1] + k1[func_i]/6.0 + k2[func_i]/3.0 + k3[func_i]/3.0 + k4[func_i]/6.0)
   
   # Return the newly calculated y values
   return y_results
@@ -184,8 +189,8 @@ def main_routine(functions,ics,h,x_lim):
 
   # Run find_ys()
   for x_i,x in enumerate(xs):
-    if x_i%1000000==0:
-      print str(int(math.floor((x - x_lim[0])*100/(x_lim[1]-x_lim[0])))) + "%"
+ #   if x_i%1000000==0:
+ #     print str(int(math.floor((x - x_lim[0])*100/(x_lim[1]-x_lim[0])))) + "%"
     if x_i > 0:
       new_args = [x]
       for i in ys:
@@ -200,15 +205,19 @@ def main_routine(functions,ics,h,x_lim):
   Vs = []
   np1 = []
   for point in range(len(ys[0])):
-#    if point > 10:
     Us.append(ys[1][point]*xs[point]**3.0/(ys[3][point]*ys[0][point]))
     Vs.append(ys[0][point]/(ys[3][point]*xs[point]))
-    np1.append(ys[3][point]**(8.5)*ys[0][point]/(ys[1][point]**2*ys[2][point]))
-
-  print np1[-1]
+    np1.append((ys[3][point]**(8.5))*ys[0][point]/(((ys[1][point])**2.0)*ys[2][point]))
+#    np1.append(ys[3][point]**(8.5))
+  #  print np1[-1]
+  #  print ys[3][point]
+  #  print ys[0][point]
+  #  print ys[1][point]
+  #  print ys[2][point]
+  #  print ""
 
   # Plot Runge Kutta
-  plt.plot(Us,Vs,label="Runge-Kutta solution")
+#  plt.plot(Us,Vs,label="Runge-Kutta solution")
 
   # Plot uv integrations
   uvint_data = parse_int()
@@ -218,13 +227,38 @@ def main_routine(functions,ics,h,x_lim):
     for point in track:
       track_Us.append(point[0])
       track_Vs.append(point[1])
-    plt.plot(track_Us,track_Vs,label="UV integrations")
+#    plt.plot(track_Us,track_Vs,label="UV integrations")
 
-  plt.xlabel("U")
-  plt.ylabel("V")
+#  plt.xlabel("U")
+#  plt.ylabel("V")
 #  plt.title("Runge-Kutta and Analytic Solutions from x="+str(x_lim[0])+" to x="+str(x_lim[1])+"\nwith b=" +str(b)+",c="+str(c)+",h="+str(h))
-  plt.legend()
-  plt.show()
+#  plt.legend()
+#  plt.show()
+#  plt.close()
+#  plt.plot(xs,ys[0])
+#  plt.xlabel("x")
+#  plt.ylabel("q")
+#  plt.show()
+#  plt.close()
+#  plt.plot(xs,ys[1])
+#  plt.xlabel("x")
+#  plt.ylabel("p")
+#  plt.show()
+#  plt.close()
+#  plt.plot(xs,ys[2])
+#  plt.xlabel("x")
+#  plt.ylabel("f")
+#  plt.show()
+#  plt.close()
+#  plt.plot(xs,ys[3])
+#  plt.xlabel("x")
+#  plt.ylabel("t")
+#  plt.show()
+
+  if np1[-1] < 3:
+    print pc
+    print min(np1)
+    print ""
 
   return ys
   
