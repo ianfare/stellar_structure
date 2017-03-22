@@ -17,6 +17,10 @@ import sys
 # Define any number of functions
 # i.e. the RHS of ODEs
 
+
+# WORKING (?) pc: 0.7120808
+
+
 #pc = 0.712
 #pc = 0.7120754429
 pc = float(sys.argv[1])
@@ -175,6 +179,9 @@ def parse_int():
 def main_routine(functions,ics,h,x_lim):
   # Prepare xs to evaluate
   xs = []
+  Us = []
+  Vs = []
+  np1 = []
   num_x = int(math.floor((x_lim[1] - x_lim[0])/h))
   for i in range(num_x):
     xs.append(x_lim[0] + i * h)
@@ -199,16 +206,63 @@ def main_routine(functions,ics,h,x_lim):
       new_ys = find_ys(new_args)
       for i,element in enumerate(ys):
         element.append(new_ys[i])
+      Us.append(ys[1][x_i]*xs[x_i]**3.0/(ys[3][x_i]*ys[0][x_i]))
+      Vs.append(ys[0][x_i]/(ys[3][x_i]*xs[x_i]))
+      np1.append((ys[3][x_i]**(8.5))*ys[0][x_i]/(((ys[1][x_i]**2.0))*ys[2][x_i]))
+      if np1[-1] <= 2.5:
+        print "found 2.5 (^-^)"
+        print Us[-1]
+        print Vs[-1]
+        # Plot Runge Kutta
+        plt.plot(Us,Vs,label="Runge-Kutta solution")
+
+        # Plot uv integrations
+        uvint_data = parse_int()
+        for track in uvint_data:
+          track_Us = []
+          track_Vs = []
+          for point in track:
+            track_Us.append(point[0])
+            track_Vs.append(point[1])
+          plt.plot(track_Us,track_Vs,label="UV integrations")
+
+        plt.xlabel("U")
+        plt.ylabel("V")
+#  plt.title("Runge-Kutta and Analytic Solutions from x="+str(x_lim[0])+" to x="+str(x_lim[1])+"\nwith b=" +str(b)+",c="+str(c)+",h="+str(h))
+#  plt.legend()
+        plt.show()
+#  plt.close()
+#  plt.plot(xs,ys[0])
+#  plt.xlabel("x")
+#  plt.ylabel("q")
+#  plt.show()
+#  plt.close()
+#  plt.plot(xs,ys[1])
+#  plt.xlabel("x")
+#  plt.ylabel("p")
+#  plt.show()
+#  plt.close()
+#  plt.plot(xs,ys[2])
+#  plt.xlabel("x")
+#  plt.ylabel("f")
+#  plt.show()
+#  plt.close()
+#        plt.plot(xs,ys[3])
+#        plt.xlabel("x")
+#        plt.ylabel("t")
+#        plt.show()
+
+        return "found 2.5 (^-^)"
 
   # Get U,V values
   # Remember, order is q,p,f,t
-  Us = []
-  Vs = []
-  np1 = []
-  for point in range(len(ys[0])):
-    Us.append(ys[1][point]*xs[point]**3.0/(ys[3][point]*ys[0][point]))
-    Vs.append(ys[0][point]/(ys[3][point]*xs[point]))
-    np1.append((ys[3][point]**(8.5))*ys[0][point]/(((ys[1][point])**2.0)*ys[2][point]))
+#  Us = []
+#  Vs = []
+#  np1 = []
+#  for point in range(len(ys[0])):
+#    Us.append(ys[1][point]*xs[point]**3.0/(ys[3][point]*ys[0][point]))
+#    Vs.append(ys[0][point]/(ys[3][point]*xs[point]))
+#    np1.append((ys[3][point]**(8.5))*ys[0][point]/(((ys[1][point]**2.0))*ys[2][point]))
 #    np1.append(ys[3][point]**(8.5))
   #  print np1[-1]
   #  print ys[3][point]
@@ -234,7 +288,7 @@ def main_routine(functions,ics,h,x_lim):
   plt.ylabel("V")
 #  plt.title("Runge-Kutta and Analytic Solutions from x="+str(x_lim[0])+" to x="+str(x_lim[1])+"\nwith b=" +str(b)+",c="+str(c)+",h="+str(h))
 #  plt.legend()
-  plt.show()
+#  plt.show()
 #  plt.close()
 #  plt.plot(xs,ys[0])
 #  plt.xlabel("x")
@@ -254,12 +308,7 @@ def main_routine(functions,ics,h,x_lim):
   plt.plot(xs,ys[3])
   plt.xlabel("x")
   plt.ylabel("t")
-  plt.show()
-  print min(np1)
-  if min(np1) < np1[0]:
-    print "!"
-    with open("./np1.txt","a") as f:
-      f.write(str(pc)+"\n"+str(min(np1))+"\n"+str(np1[-1])+"\n\n")
+#  plt.show()
 
   return ys
   
