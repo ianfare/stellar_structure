@@ -18,7 +18,7 @@ import sys
 # i.e. the RHS of ODEs
 
 
-# WORKING (?) pc: 0.7120808
+# WORKING (?) pc: 0.71208080006
 
 
 #pc = 0.712
@@ -211,8 +211,9 @@ def main_routine(functions,ics,h,x_lim):
       np1.append((ys[3][x_i]**(8.5))*ys[0][x_i]/(((ys[1][x_i]**2.0))*ys[2][x_i]))
       if np1[-1] <= 2.5:
         print "found 2.5 (^-^)"
-        print Us[-1]
-        print Vs[-1]
+        print "U = " + str(Us[-1])
+        print "V = " + str(Vs[-1])
+        print "x = " + str(x)
         # Plot Runge Kutta
         plt.plot(Us,Vs,label="Runge-Kutta solution")
 
