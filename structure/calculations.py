@@ -56,11 +56,11 @@ print "Radius = " + str(Radius) + " cm"
 print "       = " + str(Radius/1e10) + "e10 cm"
 print "       = " + str(Radius/6.957e10) + " Rsun"
 
-###### HERE AND BELOW WRONG R CALCULATION
-alphabeta = 3.0*K0*E0/(4.0*a*c*(4.0*pi)**4.0)*(R/mu)**3.5*G**(-3.5)*sqrt(M)
+###### HERE AND BELOW ALTERNATIVE R CALCULATION
+#alphabeta = 3.0*K0*E0/(4.0*a*c*(4.0*pi)**4.0)*(R/mu)**3.5*G**(-3.5)*sqrt(M)
 #print "alphabeta = " + str(alphabeta)
 
-radius = (p0**4.0*x0**2.0/(t0**(7.5))*alphabeta)**(1.0/6.5)
-print "radius = " + str(radius) + " cm"
-print "       = " + str(radius/1e10) + "e10 cm"
+#radius = (p0**4.0*x0**2.0/(t0**(7.5))*alphabeta)**(1.0/6.5)
+#print "radius = " + str(radius) + " cm"
+#print "       = " + str(radius/1e10) + "e10 cm"
 
