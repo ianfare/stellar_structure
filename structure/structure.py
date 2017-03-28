@@ -214,6 +214,10 @@ def main_routine(functions,ics,h,x_lim):
         print "U = " + str(Us[-1])
         print "V = " + str(Vs[-1])
         print "x = " + str(x)
+        print "q = " + str(ys[0][x_i])
+        print "p = " + str(ys[1][x_i])
+        print "f = " + str(ys[2][x_i])
+        print "t = " + str(ys[3][x_i])
         # Plot Runge Kutta
         plt.plot(Us,Vs,label="Runge-Kutta solution")
 
@@ -227,6 +231,7 @@ def main_routine(functions,ics,h,x_lim):
             track_Vs.append(point[1])
           plt.plot(track_Us,track_Vs,label="UV integrations")
 
+        plt.legend()
         plt.xlabel("U")
         plt.ylabel("V")
 #  plt.title("Runge-Kutta and Analytic Solutions from x="+str(x_lim[0])+" to x="+str(x_lim[1])+"\nwith b=" +str(b)+",c="+str(c)+",h="+str(h))

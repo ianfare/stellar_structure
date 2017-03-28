@@ -1,0 +1,41 @@
+with pc = 0.71208080006
+found 2.5 (^-^)
+U = 0.0926430276649
+V = 15.0733969515
+x = 10.0116
+
+This fits with E = 7.0 at those U,V values
+This is between the points (U,V) = (0.0668,19.3227) and (0.0993,13.9812)
+
+For finding initial conditions, I guess find those corresponding to (0.0993,13.9812)
+  At the point where the match happens (n+1=2.5, U,V,X as above):
+    x = 10.0116
+    q = 15.8904896167
+    p = 0.000154476422363
+    f = 1.30646023557
+    t = 0.105298613559
+
+  In the tables in the 1955 paper:
+    (1) = log(x*)
+    (3) = log(q*)
+    (4) = -log(q*)
+    (5) = log(t*)
+    (6) = log(p*)
+    (12) = log(f*)
+
+    (7) = U
+    (8) = V
+    so look for values in rows with (7)(8) = (0.0993)(13.9812)
+    
+    (4) = 0.00383
+    (5) = -1.06438
+    (6) = -1.81586
+    Table doesn't have (12), so must calculate f_0 (using C and D?)
+
+
+    Calculate x*,q*,p*,t* values:
+    x* = 0.8222426499
+    q* = 0.9912198715
+    p* = 0.0152805856
+    t* = 0.0862223787
+    
