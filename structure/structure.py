@@ -212,14 +212,14 @@ def main_routine(functions,ics,h,x_lim):
       Vs.append(ys[0][x_i]/(ys[3][x_i]*xs[x_i]))
       np1.append((ys[3][x_i]**(8.5))*ys[0][x_i]/(((ys[1][x_i]**2.0))*ys[2][x_i]))
       if np1[-1] <= 2.5:
-        print "found 2.5 (^-^)"
-        print "U = " + str(Us[-1])
-        print "V = " + str(Vs[-1])
-        print "x = " + str(x)
-        print "q = " + str(ys[0][x_i])
-        print "p = " + str(ys[1][x_i])
-        print "f = " + str(ys[2][x_i])
-        print "t = " + str(ys[3][x_i])
+#        print "found 2.5 (^-^)"
+#        print "U = " + str(Us[-1])
+#        print "V = " + str(Vs[-1])
+#        print "x = " + str(x)
+#        print "q = " + str(ys[0][x_i])
+#        print "p = " + str(ys[1][x_i])
+#        print "f = " + str(ys[2][x_i])
+#        print "t = " + str(ys[3][x_i])
         # Plot Runge Kutta
         plt.plot(Us,Vs,label="Runge-Kutta solution")
 
@@ -275,6 +275,7 @@ def main_routine(functions,ics,h,x_lim):
         Y = 1 - X - Z
 
         # These are all cgs
+        sig = 5.6704e-5
         K0 = 4.35e25*Z*(1.0+X)
         E0 = 10.0**(-29.0)*X**2
         a = 4.0*(5.67e-5)/2.998e10
@@ -331,6 +332,29 @@ def main_routine(functions,ics,h,x_lim):
         plt.show()
         plt.close()
 
+
+        # Calculate L,Teff,Tc,Pc,R for different masses
+        masses = [0.7*M,0.8*M,0.9*M,1.0*M,2.0*M,3.0*M,4.0*M,5.0*M]
+        radii_cm = []
+        radii_rsun = []
+        luminosities = []
+        luminosities_lsun = []
+        Teffs = []
+        for mass in masses:
+          radii_cm.append((1.0/(C*D)*E0*(R/mu)**3.5*(4.0*pi)**(-4.0)*G**(-3.5)*mass**(0.5)*3.0*K0/(4.0*a*c))**(1.0/6.5))
+          radii_rsun.append(radii_cm[-1]/Radius)
+          # L calculated from D equation:
+          luminosities.append(E0*(mu/R)**4*G**4/(4*pi)*mass**6/(D*radii_cm[-1]**7))
+          # L calculated from C equation, unfinished:
+#          luminosities.append(C*4*a*c/(3*K0)*(4*pi)**3*(mu/R)**7.5*G**7.5
+          luminosities_lsun.append(luminosities[-1]/Lsun)
+          Teffs.append((luminosities[-1]/(4*pi*radii_cm[-1]**2*sig))**(0.25))
+        for i in range(len(radii_rsun)):
+          print str(masses[i]/M) + "Msun: R = " + str(radii_rsun[i]) + " Rsun" 
+          print "         L = " + str(luminosities_lsun[i]) + " Lsun"
+          print "      Teff = " + str(Teffs[i]) + " K"
+
+          print ""
         return "found 2.5 (^-^)"
 
 
