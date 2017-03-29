@@ -357,6 +357,17 @@ def main_routine(functions,ics,h,x_lim):
           print "        Pc = " + str(P[0]) + " baryes?"
           print "        Tc = " + str(T[0]) + " K"
           print ""
+
+        # Do HR diagram
+        plt.plot(Teffs,luminosities,"ro")
+        plt.xscale("log")
+        plt.gca().invert_xaxis()
+        plt.yscale("log")
+        plt.show()
+        plt.close()
+
+
+
         return "found 2.5 (^-^)"
 
 
