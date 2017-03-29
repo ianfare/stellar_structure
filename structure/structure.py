@@ -159,13 +159,20 @@ def parse_int():
 
 
 def plotstuff(xs,Us,Vs,ys):
-  # Plot Runge Kutta
+  # Called when n+1<=2.5
+  # Does UV plot, and makes plots/answers questions from assignment
+
+
+
+  # Plot Runge Kutta model solution
   plt.plot(Us,Vs,label="Runge-Kutta solution")
 
   # Plot uv integrations
   uvint_data = parse_int()
 
+  # Get E values corresponding to tracks for labelling
   track_numbers = [1.0,1.5,2.0,3.0,4.0,5.0,6.0,7.0,8.0]
+  # Plot UV integrations
   for track_i,track in enumerate(uvint_data):
     track_Us = []
     track_Vs = []
@@ -181,58 +188,64 @@ def plotstuff(xs,Us,Vs,ys):
   plt.close()
 
 
-#####################################################################
-# ANSWERING QUESTIONS HERE                                          #
-#####################################################################
   # Plot density, temperature, pressure as a function of mass fraction (m/M)
-  # Need to get qpft data from matched UV integration
+  # Rename them from Runge-Kutta solution for simplicity
   qs = ys[0]
   ps = ys[1]
   fs = ys[2]
   ts = ys[3]
 
+  # These are values from the UV integration (E=7.0) where my model fits
+  # I pulled them from the pdf and did y=10^log(y) calculations by hand, sorry
   xstar_match = 0.8222426499
   qstar_match = 0.9912198715
   pstar_match = 0.0152805856
   fstar_match = 1.0
   tstar_match = 0.0862223787
 
-  xmatch = 10.0116
-  qmatch = 15.8904896167
-  pmatch = 0.000154476422363
-  fmatch = 1.30646023557
-  tmatch = 0.105298613559
+  # These are the x,q,p,f,t values where n+1=2.5
+  # I just printed them off from when I found the working pc value
+  # And copied them here
+  # Sorry for hard-coding
+  xmatch = 10.0116 # = xs[-1]
+  qmatch = 15.8904896167 # = ys[0][-1]
+  pmatch = 0.000154476422363 # = ys[1][-1]
+  fmatch = 1.30646023557 # = ys[2][-1]
+  tmatch = 0.105298613559 # = ys[3][-1]
 
+  # Compute core values
   x0 = xstar_match/xmatch
   q0 = qstar_match/qmatch
   p0 = pstar_match/pmatch
   f0 = fstar_match/fmatch
   t0 = tstar_match/tmatch
 
+  # Solar composition
   X = 0.7
   Z = 0.02
   Y = 1 - X - Z
 
   # These are all cgs
-  sig = 5.6704e-5
-  K0 = 4.35e25*Z*(1.0+X)
-  E0 = 10.0**(-29.0)*X**2
-  a = 4.0*(5.67e-5)/2.998e10
-  c = 2.998e10
-  R = 8.31e7
-  mu = 1.0/(2.0*X+0.75*Y+0.5*Z)
-  G = 6.674e-8
-  M = 1.98855e33
-  Lsun = 3.839e33
+  sig = 5.6704e-5 # Stefan-Boltzmann constant
+  K0 = 4.35e25*Z*(1.0+X) # Core Kramer's opacity
+  E0 = 10.0**(-29.0)*X**2 # Core energy from p-p chain
+  a = 4.0*(5.67e-5)/2.998e10 # Radiation constant
+  c = 2.998e10 # Speed of light
+  R = 8.31e7 # Solar radius
+  mu = 1.0/(2.0*X+0.75*Y+0.5*Z) # Equation of state
+  G = 6.674e-8 # Gravitational constant
+  M = 1.98855e33 # Solar mass
+  Lsun = 3.839e33 # Solar luminosity
 
+  # Calculate constants C & D
   C = t0**(9.5)*x0/(p0**2*f0)
   D = f0/(p0**2*t0**2*x0**3)
 
+  # Calculate solar radius
   Radius = (1.0/(C*D)*E0*(R/mu)**3.5*(4.0*pi)**(-4.0)*G**(-3.5)*M**(0.5)*3.0*K0/(4.0*a*c))**(1.0/6.5)
 
-  # APPEND INTEGRATION VALUES TO qprs HERE
 
-  # Calculate r,m,l,T,P
+  # Calculate r,m,l,T,P for each x to convert model to physical units
   xstar = []
   qstar = []
   pstar = []
@@ -245,6 +258,8 @@ def plotstuff(xs,Us,Vs,ys):
   P = []
   mass_fraction = []
   density = []
+
+  # Calculate x*,q*,p*,f*,t*,r,m,l,T,P,mass_fraction,density for each x 
   for point in range(len(ps)):
     xstar.append(x0*xs[point])
     qstar.append(q0*qs[point])
@@ -261,7 +276,7 @@ def plotstuff(xs,Us,Vs,ys):
   # Plot density as a function of mass fraction for model
   plt.plot(mass_fraction,density)
   plt.xlabel("Mass fraction m/M")
-  plt.ylabel("Density")
+  plt.ylabel("Density (g/cm)")
   plt.show()
   plt.close()
   # Plot temperature as a function of mass fraction for model
@@ -286,25 +301,27 @@ def plotstuff(xs,Us,Vs,ys):
   luminosities_lsun = []
   Teffs = []
   for mass in masses:
+    # Calculate radius in cm and in solar radii
     radii_cm.append((1.0/(C*D)*E0*(R/mu)**3.5*(4.0*pi)**(-4.0)*G**(-3.5)*mass**(0.5)*3.0*K0/(4.0*a*c))**(1.0/6.5))
     radii_rsun.append(radii_cm[-1]/Radius)
-    # L calculated from D equation:
+    # Calculate luminosity from definition of constant D
     luminosities.append(E0*(mu/R)**4*G**4/(4*pi)*mass**6/(D*radii_cm[-1]**7))
-    # L calculated from C equation, unfinished:
-#          luminosities.append(C*4*a*c/(3*K0)*(4*pi)**3*(mu/R)**7.5*G**7.5
     luminosities_lsun.append(luminosities[-1]/Lsun)
+    # Calculate effective temperature
     Teffs.append((luminosities[-1]/(4*pi*radii_cm[-1]**2*sig))**(0.25))
     
-  for i in range(len(radii_rsun)):
+  # Print it all out for each mass
+  for i in range(len(masses)):
     print str(masses[i]/M) + "Msun: R = " + str(radii_rsun[i]) + " Rsun" 
     print "         L = " + str(luminosities_lsun[i]) + " Lsun"
     print "      Teff = " + str(Teffs[i]) + " K"
-    print "        Pc = " + str(P[0]) + " baryes?"
+    print "        Pc = " + str(P[0]) + " baryes"
     print "        Tc = " + str(T[0]) + " K"
     print ""
 
   # Do HR diagram
   # Get observed main sequence from HRDiagram.dat
+  # And parse it into log(L/Lsun) and log(T)
   obs_log_Ts = []
   obs_log_Lratios = []
   with open("./HRDiagram.dat","r") as f:
@@ -319,6 +336,7 @@ def plotstuff(xs,Us,Vs,ys):
           else:
             obs_log_Lratios.append(float(obs[i][j]))
 
+  # Make lists of log(L/Lsun) and log(T), from values calculated above
   log_Lratios = []
   log_Ts = []
   for i in luminosities:
@@ -326,6 +344,7 @@ def plotstuff(xs,Us,Vs,ys):
   for i in Teffs:
     log_Ts.append(log10(i))
   
+  # Plot stuff
   plt.plot(log_Ts,log_Lratios,"ro",label="model")
   plt.plot(obs_log_Ts,obs_log_Lratios,"bo",label="observational")
   plt.xlabel("log(Teff (K))")
@@ -340,7 +359,8 @@ def plotstuff(xs,Us,Vs,ys):
 #   2) Prepares lists as elements of list for y_i values
 #   3) Puts initial conditions into those lists
 #   4) Runs find_ys() for each x value sequentially
-#   5) Plots analytic solution (can remove this if there is none)
+#      Calculate U,V,n+1 values
+#      If n+1<=2.5, plot/calculate stuff for assignment and stop
 def main_routine(functions,ics,h,x_lim):
   # Prepare xs to evaluate
   xs = []
@@ -369,9 +389,11 @@ def main_routine(functions,ics,h,x_lim):
       new_ys = find_ys(new_args)
       for i,element in enumerate(ys):
         element.append(new_ys[i])
+      # Calculate U,V,n+1 values
       Us.append(ys[1][x_i]*xs[x_i]**3.0/(ys[3][x_i]*ys[0][x_i]))
       Vs.append(ys[0][x_i]/(ys[3][x_i]*xs[x_i]))
       np1.append((ys[3][x_i]**(8.5))*ys[0][x_i]/(((ys[1][x_i]**2.0))*ys[2][x_i]))
+      # If at any point n+1<=2.5, plot /calculate stuff for assignment and stop
       if np1[-1] <= 2.5:
         plotstuff(xs,Us,Vs,ys)
         return "found 2.5 (^-^)"
