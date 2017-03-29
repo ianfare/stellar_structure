@@ -349,11 +349,13 @@ def main_routine(functions,ics,h,x_lim):
 #          luminosities.append(C*4*a*c/(3*K0)*(4*pi)**3*(mu/R)**7.5*G**7.5
           luminosities_lsun.append(luminosities[-1]/Lsun)
           Teffs.append((luminosities[-1]/(4*pi*radii_cm[-1]**2*sig))**(0.25))
+          
         for i in range(len(radii_rsun)):
           print str(masses[i]/M) + "Msun: R = " + str(radii_rsun[i]) + " Rsun" 
           print "         L = " + str(luminosities_lsun[i]) + " Lsun"
           print "      Teff = " + str(Teffs[i]) + " K"
-
+          print "        Pc = " + str(P[0]) + " baryes?"
+          print "        Tc = " + str(T[0]) + " K"
           print ""
         return "found 2.5 (^-^)"
 
