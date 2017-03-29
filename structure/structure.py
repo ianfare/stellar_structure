@@ -392,8 +392,8 @@ def main_routine(functions,ics,h,x_lim):
         
         plt.plot(log_Ts,log_Lratios,"ro",label="model")
         plt.plot(obs_log_Ts,obs_log_Lratios,"bo",label="observational")
-        plt.xlabel("Teff (K)")
-        plt.ylabel("L/Lsun")
+        plt.xlabel("log(Teff (K))")
+        plt.ylabel("log(L/Lsun)")
         plt.legend()
         plt.gca().invert_xaxis()
         plt.show()
