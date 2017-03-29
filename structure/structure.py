@@ -6,6 +6,8 @@
 
 import matplotlib.pyplot as plt
 import math
+from math import *
+# Do one or the other not both
 import sys
 
 ###########################################################
@@ -23,8 +25,8 @@ import sys
 
 #pc = 0.712
 #pc = 0.7120754429
-pc = float(sys.argv[1])
-#pc = 0.712081097
+#pc = float(sys.argv[1])
+pc = 0.71208080006
 
 x_0 = 0.01
 q_0 = 1.0/3.0*(pc*x_0**3.0)
@@ -237,28 +239,101 @@ def main_routine(functions,ics,h,x_lim):
 #  plt.title("Runge-Kutta and Analytic Solutions from x="+str(x_lim[0])+" to x="+str(x_lim[1])+"\nwith b=" +str(b)+",c="+str(c)+",h="+str(h))
 #  plt.legend()
         plt.show()
-#  plt.close()
-#  plt.plot(xs,ys[0])
-#  plt.xlabel("x")
-#  plt.ylabel("q")
-#  plt.show()
-#  plt.close()
-#  plt.plot(xs,ys[1])
-#  plt.xlabel("x")
-#  plt.ylabel("p")
-#  plt.show()
-#  plt.close()
-#  plt.plot(xs,ys[2])
-#  plt.xlabel("x")
-#  plt.ylabel("f")
-#  plt.show()
-#  plt.close()
-#        plt.plot(xs,ys[3])
-#        plt.xlabel("x")
-#        plt.ylabel("t")
-#        plt.show()
+        plt.close()
+
+
+#####################################################################
+# ANSWERING QUESTIONS HERE                                          #
+#####################################################################
+        # Plot density, temperature, pressure as a function of mass fraction (m/M)
+        # Need to get qpft data from matched UV integration
+        qs = ys[0]
+        ps = ys[1]
+        fs = ys[2]
+        ts = ys[3]
+
+        xstar_match = 0.8222426499
+        qstar_match = 0.9912198715
+        pstar_match = 0.0152805856
+        fstar_match = 1.0
+        tstar_match = 0.0862223787
+
+        xmatch = 10.0116
+        qmatch = 15.8904896167
+        pmatch = 0.000154476422363
+        fmatch = 1.30646023557
+        tmatch = 0.105298613559
+
+        x0 = xstar_match/xmatch
+        q0 = qstar_match/qmatch
+        p0 = pstar_match/pmatch
+        f0 = fstar_match/fmatch
+        t0 = tstar_match/tmatch
+
+        X = 0.7
+        Z = 0.02
+        Y = 1 - X - Z
+
+        # These are all cgs
+        K0 = 4.35e25*Z*(1.0+X)
+        E0 = 10.0**(-29.0)*X**2
+        a = 4.0*(5.67e-5)/2.998e10
+        c = 2.998e10
+        R = 8.31e7
+        mu = 1.0/(2.0*X+0.75*Y+0.5*Z)
+        G = 6.674e-8
+        M = 1.98855e33
+        Lsun = 3.839e33
+
+        C = t0**(9.5)*x0/(p0**2*f0)
+        D = f0/(p0**2*t0**2*x0**3)
+
+        Radius = (1.0/(C*D)*E0*(R/mu)**3.5*(4.0*pi)**(-4.0)*G**(-3.5)*M**(0.5)*3.0*K0/(4.0*a*c))**(1.0/6.5)
+
+        # APPEND INTEGRATION VALUES TO qprs HERE
+
+        # Calculate r,m,l,T,P
+        xstar = []
+        qstar = []
+        pstar = []
+        fstar = []
+        tstar = []
+        r = []
+        m = []
+        l = []
+        T = []
+        P = []
+        mass_fraction = []
+        density = []
+        for point in range(len(ps)):
+          xstar.append(x0*xs[point])
+          qstar.append(q0*qs[point])
+          pstar.append(p0*ps[point])
+          fstar.append(f0*fs[point])
+          tstar.append(t0*ts[point])
+          r.append(xstar[-1]*Radius)
+          m.append(qstar[-1]*M)
+          l.append(fstar[-1]*Lsun)
+          T.append(tstar[-1]*mu*G*M/(R*Radius))
+          P.append(pstar[-1]*G*M**2/(4*pi*Radius**4))
+          mass_fraction.append(m[-1]/M)
+          density.append(P[-1]*mu/(R*T[-1]))
+        # Plot density as a function of mass fraction for model
+        plt.plot(mass_fraction,density)
+        plt.show()
+        plt.close()
+        # Plot temperature as a function of mass fraction for model
+        plt.plot(mass_fraction,T)
+        plt.show()
+        plt.close()
+        # Plot pressure as a function of mass fraction for model
+        plt.plot(mass_fraction,P)
+        plt.show()
+        plt.close()
 
         return "found 2.5 (^-^)"
+
+
 
   # Get U,V values
   # Remember, order is q,p,f,t
