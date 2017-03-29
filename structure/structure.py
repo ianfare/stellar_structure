@@ -359,10 +359,32 @@ def main_routine(functions,ics,h,x_lim):
           print ""
 
         # Do HR diagram
-        plt.plot(Teffs,luminosities,"ro")
-        plt.xscale("log")
+        # Get observed main sequence from HRDiagram.dat
+        obs_log_Ts = []
+        obs_log_Lratios = []
+        with open("./HRDiagram.dat","r") as f:
+          obs = f.readlines()
+        for i in range(len(obs)):
+          obs[i] = obs[i].strip().split(" ")
+#          print obs[i]
+          if i > 1:
+            for j in range(len(obs[i])):
+              if j > 1 and len(obs[i][j]) > 1:
+                if j < 9:
+                  obs_log_Ts.append(float(obs[i][j]))
+                else:
+                  obs_log_Lratios.append(float(obs[i][j]))
+
+        log_Lratios = []
+        log_Ts = []
+        for i in luminosities:
+          log_Lratios.append(log10(i/Lsun))
+        for i in Teffs:
+          log_Ts.append(log10(i))
+        
+        plt.plot(log_Ts,log_Lratios,"ro")
+        plt.plot(obs_log_Ts,obs_log_Lratios,"bo")
         plt.gca().invert_xaxis()
-        plt.yscale("log")
         plt.show()
         plt.close()
 
