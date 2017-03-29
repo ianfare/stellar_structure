@@ -4,6 +4,15 @@
 # Ian Fare
 # March 30, 2017
 
+# Use: ./structure.py
+# Shows one plot at a time; close to move on to the next one
+# After the plots with mass fraction on the x axis are closed,
+#  prints R,L,Teff,Pc,Tc for the different masses
+# Wait for plots to come up, don't click through them before they can load
+#  (that causes an error)
+
+
+
 import matplotlib.pyplot as plt
 from math import pi,floor,log10
 
@@ -312,11 +321,11 @@ def plotstuff(xs,Us,Vs,ys):
     
   # Print it all out for each mass
   for i in range(len(masses)):
-    print str(masses[i]/M) + "Msun: R = " + str(radii_rsun[i]) + " Rsun" 
-    print "         L = " + str(luminosities_lsun[i]) + " Lsun"
-    print "      Teff = " + str(Teffs[i]) + " K"
-    print "        Pc = " + str(P[0]) + " baryes"
-    print "        Tc = " + str(T[0]) + " K"
+    print str(masses[i]/M) + " Msun: R = " + str(radii_rsun[i]) + " Rsun" 
+    print "          L = " + str(luminosities_lsun[i]) + " Lsun"
+    print "       Teff = " + str(Teffs[i]) + " K"
+    print "         Pc = " + str(P[0]) + " baryes"
+    print "         Tc = " + str(T[0]) + " K"
     print ""
 
   # Do HR diagram
