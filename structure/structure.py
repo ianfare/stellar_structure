@@ -225,13 +225,15 @@ def main_routine(functions,ics,h,x_lim):
 
         # Plot uv integrations
         uvint_data = parse_int()
-        for track in uvint_data:
+
+        track_numbers = [1.0,1.5,2.0,3.0,4.0,5.0,6.0,7.0,8.0]
+        for track_i,track in enumerate(uvint_data):
           track_Us = []
           track_Vs = []
           for point in track:
             track_Us.append(point[0])
             track_Vs.append(point[1])
-          plt.plot(track_Us,track_Vs,label="UV integrations")
+          plt.plot(track_Us,track_Vs,label="E = " + str(track_numbers[track_i]))
 
         plt.legend()
         plt.xlabel("U")
@@ -321,14 +323,20 @@ def main_routine(functions,ics,h,x_lim):
           density.append(P[-1]*mu/(R*T[-1]))
         # Plot density as a function of mass fraction for model
         plt.plot(mass_fraction,density)
+        plt.xlabel("Mass fraction m/M")
+        plt.ylabel("Density")
         plt.show()
         plt.close()
         # Plot temperature as a function of mass fraction for model
         plt.plot(mass_fraction,T)
+        plt.xlabel("Mass fraction m/M")
+        plt.ylabel("Temperature (K)")
         plt.show()
         plt.close()
         # Plot pressure as a function of mass fraction for model
         plt.plot(mass_fraction,P)
+        plt.xlabel("Mass fraction m/M")
+        plt.ylabel("Pressure (baryes)")
         plt.show()
         plt.close()
 
@@ -382,8 +390,11 @@ def main_routine(functions,ics,h,x_lim):
         for i in Teffs:
           log_Ts.append(log10(i))
         
-        plt.plot(log_Ts,log_Lratios,"ro")
-        plt.plot(obs_log_Ts,obs_log_Lratios,"bo")
+        plt.plot(log_Ts,log_Lratios,"ro",label="model")
+        plt.plot(obs_log_Ts,obs_log_Lratios,"bo",label="observational")
+        plt.xlabel("Teff (K)")
+        plt.ylabel("L/Lsun")
+        plt.legend()
         plt.gca().invert_xaxis()
         plt.show()
         plt.close()
