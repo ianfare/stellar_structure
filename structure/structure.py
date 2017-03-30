@@ -285,7 +285,7 @@ def plotstuff(xs,Us,Vs,ys):
   # Plot density as a function of mass fraction for model
   plt.plot(mass_fraction,density)
   plt.xlabel("Mass fraction m/M")
-  plt.ylabel("Density (g/cm)")
+  plt.ylabel("Density (g/cm^3)")
   plt.show()
   plt.close()
   # Plot temperature as a function of mass fraction for model
@@ -308,6 +308,8 @@ def plotstuff(xs,Us,Vs,ys):
   radii_rsun = []
   luminosities = []
   luminosities_lsun = []
+  Tcs = []
+  Pcs = []
   Teffs = []
   for mass in masses:
     # Calculate radius in cm and in solar radii
@@ -315,17 +317,24 @@ def plotstuff(xs,Us,Vs,ys):
     radii_rsun.append(radii_cm[-1]/Radius)
     # Calculate luminosity from definition of constant D
     luminosities.append(E0*(mu/R)**4*G**4/(4*pi)*mass**6/(D*radii_cm[-1]**7))
+    # Or, calculate luminosity from deminition of constant C
+#    luminosities.append(C*4*a*c/(3*K0)*(4*pi)**3*(mu/R)**7.5*G**7.5*M**(5.5)/radii_cm[-1]**(0.5))
     luminosities_lsun.append(luminosities[-1]/Lsun)
     # Calculate effective temperature
     Teffs.append((luminosities[-1]/(4*pi*radii_cm[-1]**2*sig))**(0.25))
+    # Calculate core temperature
+    Tcs.append(tstar[0]*mu*G*mass/(R*radii_cm[-1]))
+    # Calculate core pressure
+    Pcs.append(pstar[0]*G*mass**2/(4*pi*radii_cm[-1]**4))
+
     
   # Print it all out for each mass
   for i in range(len(masses)):
     print str(masses[i]/M) + " Msun: R = " + str(radii_rsun[i]) + " Rsun" 
     print "          L = " + str(luminosities_lsun[i]) + " Lsun"
     print "       Teff = " + str(Teffs[i]) + " K"
-    print "         Pc = " + str(P[0]) + " baryes"
-    print "         Tc = " + str(T[0]) + " K"
+    print "         Tc = " + str(Tcs[i]) + " baryes"
+    print "         Pc = " + str(Pcs[i]) + " K"
     print ""
 
   # Do HR diagram
