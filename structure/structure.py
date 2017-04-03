@@ -150,7 +150,7 @@ def parse_int():
 
   # Parse UV integration data into:
   # uvint_data[i][j]
-  #   i = E value
+  #   i = E value index
   #   j = point = [U,V]
   for i in uvint_data:
     for j in range(len(i)):
@@ -171,28 +171,27 @@ def plotstuff(xs,Us,Vs,ys):
   # Called when n+1<=2.5
   # Does UV plot, and makes plots/answers questions from assignment
 
-
-
   # Plot Runge Kutta model solution
   plt.plot(Us,Vs,label="Runge-Kutta solution")
 
-  # Plot uv integrations
+  # Get UV integrations
   uvint_data = parse_int()
 
   # Get E values corresponding to tracks for labelling
-  track_numbers = [1.0,1.5,2.0,3.0,4.0,5.0,6.0,7.0,8.0]
-  # Plot UV integrations
-  for track_i,track in enumerate(uvint_data):
-    track_Us = []
-    track_Vs = []
-    for point in track:
-      track_Us.append(point[0])
-      track_Vs.append(point[1])
-    plt.plot(track_Us,track_Vs,label="E = " + str(track_numbers[track_i]))
+  envelope_numbers = [1.0,1.5,2.0,3.0,4.0,5.0,6.0,7.0,8.0]
+  # Plot envelope solutions
+  for envelope_i,envelope in enumerate(uvint_data):
+    envelope_Us = []
+    envelope_Vs = []
+    for point in envelope:
+      envelope_Us.append(point[0])
+      envelope_Vs.append(point[1])
+    plt.plot(envelope_Us,envelope_Vs,label="E = " + str(envelope_numbers[envelope_i]))
 
   plt.legend()
   plt.xlabel("U")
   plt.ylabel("V")
+  plt.title("Core Model and Envelope Solutions in UV plane")
   plt.show()
   plt.close()
 
@@ -204,7 +203,7 @@ def plotstuff(xs,Us,Vs,ys):
   fs = ys[2]
   ts = ys[3]
 
-  # These are values from the UV integration (E=7.0) where my model fits
+  # These are values from the envelope solution (E=7.0) where my model fits
   # I pulled them from the pdf and did y=10^log(y) calculations by hand, sorry
   xstar_match = 0.8222426499
   qstar_match = 0.9912198715
@@ -286,18 +285,21 @@ def plotstuff(xs,Us,Vs,ys):
   plt.plot(mass_fraction,density)
   plt.xlabel("Mass fraction m/M")
   plt.ylabel("Density (g/cm^3)")
+  plt.title("Density vs. Mass Fraction")
   plt.show()
   plt.close()
   # Plot temperature as a function of mass fraction for model
   plt.plot(mass_fraction,T)
   plt.xlabel("Mass fraction m/M")
   plt.ylabel("Temperature (K)")
+  plt.title("Temperature vs. Mass Fraction")
   plt.show()
   plt.close()
   # Plot pressure as a function of mass fraction for model
   plt.plot(mass_fraction,P)
   plt.xlabel("Mass fraction m/M")
-  plt.ylabel("Pressure (baryes)")
+  plt.ylabel("Pressure (Ba)")
+  plt.title("Pressure vs. Mass Fraction")
   plt.show()
   plt.close()
 
@@ -317,7 +319,7 @@ def plotstuff(xs,Us,Vs,ys):
     radii_rsun.append(radii_cm[-1]/Radius)
     # Calculate luminosity from definition of constant D
     luminosities.append(E0*(mu/R)**4*G**4/(4*pi)*mass**6/(D*radii_cm[-1]**7))
-    # Or, calculate luminosity from deminition of constant C
+    # Or, calculate luminosity from definition of constant C
 #    luminosities.append(C*4*a*c/(3*K0)*(4*pi)**3*(mu/R)**7.5*G**7.5*M**(5.5)/radii_cm[-1]**(0.5))
     luminosities_lsun.append(luminosities[-1]/Lsun)
     # Calculate effective temperature
@@ -333,7 +335,7 @@ def plotstuff(xs,Us,Vs,ys):
     print str(masses[i]/M) + " Msun: R = " + str(radii_rsun[i]) + " Rsun" 
     print "          L = " + str(luminosities_lsun[i]) + " Lsun"
     print "       Teff = " + str(Teffs[i]) + " K"
-    print "         Tc = " + str(Tcs[i]) + " baryes"
+    print "         Tc = " + str(Tcs[i]) + " Ba"
     print "         Pc = " + str(Pcs[i]) + " K"
     print ""
 
@@ -363,10 +365,11 @@ def plotstuff(xs,Us,Vs,ys):
     log_Ts.append(log10(i))
   
   # Plot stuff
-  plt.plot(log_Ts,log_Lratios,"ro",label="model")
   plt.plot(obs_log_Ts,obs_log_Lratios,"bo",label="observational")
+  plt.plot(log_Ts,log_Lratios,"ro",label="model")
   plt.xlabel("log(Teff (K))")
   plt.ylabel("log(L/Lsun)")
+  plt.title("Theoretical ZAMS and Observed MS")
   plt.legend()
   plt.gca().invert_xaxis()
   plt.show()
@@ -411,18 +414,18 @@ def main_routine(functions,ics,h,x_lim):
       Us.append(ys[1][x_i]*xs[x_i]**3.0/(ys[3][x_i]*ys[0][x_i]))
       Vs.append(ys[0][x_i]/(ys[3][x_i]*xs[x_i]))
       np1.append((ys[3][x_i]**(8.5))*ys[0][x_i]/(((ys[1][x_i]**2.0))*ys[2][x_i]))
-      # If at any point n+1<=2.5, plot /calculate stuff for assignment and stop
+      # If at any point n+1<=2.5, plot/calculate stuff for assignment and stop
       if np1[-1] <= 2.5:
         plotstuff(xs,Us,Vs,ys)
         return "found 2.5 (^-^)"
 
-  # If main_func() gets here, it hasn't found n+1=2.5 before x=20, which is bad
+  # If main_routine() gets here, it hasn't found n+1=2.5 before x=20, which is bad
   # Plot anyways to see what's going on, I guess
 
   # Plot Runge Kutta
   plt.plot(Us,Vs,label="Runge-Kutta solution")
 
-  # Plot uv integrations
+  # Plot envelope solutions
   uvint_data = parse_int()
   for track in uvint_data:
     track_Us = []
