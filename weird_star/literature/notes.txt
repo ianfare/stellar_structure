@@ -1,1 +1,41 @@
- 
+Notes on FUors
+(Mostly from https://www.aavso.org/vsots_fuori and constituent sources)
+
+FU Orionis (original)
+1937: from 16th magnitude, brightened by 6 magnitudes in 100-200 days
+Bright nebulosity
+Lingered at max brightness sence then, with nebula
+
+Other stars exhibited similar dramatic increase in brightness
+
+Many main-sequence stars likely originated as FUors
+Many others have less dramatic brightness variations: T Tauri, EXors
+Herbig 60s,70s: 
+  FUors associated with dark clouds
+  Similar spectra w/ high Li abundance, like T Tauri
+  Rise in brightness is not a nova
+  Likely Pre-MS, from event statistics
+  
+Kenyon 1999:
+  coma-shaped reflection nebula, glowing in optical and near-IR
+  Broad, blue-shifted (so, expelling material) Na I and H I absorption
+  Optical line profiles change on month ~ year timescales
+  Strong radio continuum sources, may be produced by outflow of a jet
+  
+FUors: pre-sun-like
+  Common, but so brief that we haven't seen many
+  Occur in dust and gas in active star-forming regions of the galaxy
+  
+Turner et al. 1997:
+  Matter falling onto outer region of accretion disk from interstellar cloud
+  Thermal instability in inner disk -> outburst
+  Duration is determined by viscosity of hot, ionized inner disk
+  Eruption declines when inner disk depleted by accretion
+    -> T drops
+    -> H can recombine
+    -> Mass at inner disk increases again
+    -> When T high enough to ionize H, cycle repeats
+  Cycle between high & low accretion
+  
+  However, this can't be responsible for V346 Normae, which is too quick (ninan)
+  

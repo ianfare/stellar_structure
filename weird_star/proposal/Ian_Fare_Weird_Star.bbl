@@ -1,6 +1,18 @@
 \begin{thebibliography}{}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
+\bibitem[{Appenzeller \& Mundt(1989)}]{appenzeller1989t}
+Appenzeller, I., \& Mundt, R. 1989, Astronomy and Astrophysics Review, 1, 291
+
+\bibitem[{Audard {et~al.}(2014)Audard, Abrah{\'a}m, Dunham, Green, Grosso,
+  Hamaguchi, Kastner, K{\'o}sp{\'a}l, Lodato, Romanova,
+  {et~al.}}]{audard2014episodic}
+Audard, M., Abrah{\'a}m, P., Dunham, M.~M., {et~al.} 2014, Protostars and
+  Planets VI, 1, 387
+
+\bibitem[{Bell \& Lin(1993)}]{bell1993using}
+Bell, K., \& Lin, D. 1993, arXiv preprint astro-ph/9312015
+
 \bibitem[{Bouvier {et~al.}(2003)Bouvier, Grankin, Alencar, Dougados,
   Fern{\'a}ndez, Basri, Batalha, Guenther, Ibrahimov, Magakian,
   {et~al.}}]{bouvier2003eclipses}
@@ -15,8 +27,24 @@ D'Angelo, C.~R., \& Spruit, H.~C. 2010, Monthly Notices of the Royal
 Hartmann, L., \& Kenyon, S.~J. 1996, Annual Review of Astronomy and
   Astrophysics, 34, 207
 
+\bibitem[{Herbig(2008)}]{herbig2008history}
+Herbig, G. 2008, The Astronomical Journal, 135, 637
+
+\bibitem[{Herbig(1966)}]{herbig1966interpretation}
+Herbig, G.~H. 1966, Vistas in Astronomy, 8, 109
+
 \bibitem[{Herbig(1977)}]{herbig_eruptive_1977}
-Herbig, G.~H. 1977, The Astrophysical Journal, 217, 693
+---. 1977, The Astrophysical Journal, 217, 693
+
+\bibitem[{Hillenbrand {et~al.}(1992)Hillenbrand, Strom, Vrba, \&
+  Keene}]{hillenbrand1992herbig}
+Hillenbrand, L.~A., Strom, S.~E., Vrba, F.~J., \& Keene, J. 1992, The
+  Astrophysical Journal, 397, 613
+
+\bibitem[{Kenyon(1999)}]{kenyon_accretion_1999}
+Kenyon, S.~J. 1999, in The {Origin} of {Stars} and {Planetary} {Systems}, ed.
+  C.~J. Lada \& N.~D. Kylafis, {NATO} {Science} {Series} No. 540 (Springer
+  Netherlands), 613--642, dOI: 10.1007/978-94-011-4509-1\_18
 
 \bibitem[{Kenyon {et~al.}(2000)Kenyon, Kolotilov, Ibragimov, \&
   Mattei}]{kenyon_flickering_2000}
@@ -32,6 +60,14 @@ K\'{o}sp\'{a}l, A., \'{A}brah\'{a}m, P., Westhues, C., \& Haas, M. 2017,
   Aarnio, Monnier, Naylor, \& Weigelt}]{kraus_v346_2016}
 Kraus, S., Caratti~o Garatti, A., Garcia-Lopez, R., {et~al.} 2016, Monthly
   Notices of the Royal Astronomical Society, 462, L61
+
+\bibitem[{Lodato \& Clarke(2004)}]{lodato2004massive}
+Lodato, G., \& Clarke, C. 2004, Monthly Notices of the Royal Astronomical
+  Society, 353, 841
+
+\bibitem[{Nayakshin \& Lodato(2012)}]{nayakshin2012fu}
+Nayakshin, S., \& Lodato, G. 2012, Monthly Notices of the Royal Astronomical
+  Society, 426, 70
 
 \bibitem[{Ninan {et~al.}(2015)Ninan, Ojha, Baug, Bhatt, Mohan, Ghosh,
   Men’shchikov, Anupama, Tamura, \& Henning}]{ninan2015v899}
