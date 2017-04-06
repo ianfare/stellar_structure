@@ -1,0 +1,30 @@
+~~ super awesome plan ~~
+
+Dividing between "Recent progress" vs. "Literature review"
+----------------------------------------------------------
+
+Literature review:
+  "pertinent specifically to what you intend to do"
+  "why your work is going to be impactful in the field"
+
+  A discussion of small-scale flickering -> physical properties of accretion disk
+    Because it's pertinent, effectively describing my methods
+
+  A discussion of the current state of V346 Normae as of 2017
+  Maybe also V899 Mon & second outbursts?
+
+  In summary, the current state of the subject of research, and previous attempts at these methods
+
+Recent progress:
+  More general info on FU Ori stars
+  Physical mechanisms and models of FU Ori stars
+  Recent work on FU Ori stars in the general case?
+  V899 Mon & second outbursts?
+
+
+Fixes
+-----
+
+Talk as if FU Ori is the first to decrease in brightness and enter a second outburst
+That's not true: V899 Mon (and others?)
+Instead, refer to other second outbursts

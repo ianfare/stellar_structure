@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.10)  27 FEB 2017 09:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.10)  6 APR 2017 03:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -620,13 +620,10 @@ Overfull \hbox (1.90002pt too wide) has occurred while \output is active
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 1019) in paragraph at lines 58--59
+Underfull \hbox (badness 1019) in paragraph at lines 64--65
 \T1/ptm/m/n/10 V346 Nor-mae will re-quire its mon-i-tor-ing from mul-ti-ple
  []
 
-(./Ian_Fare_Weird_Star.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
 
 Overfull \hbox (1.90002pt too wide) has occurred while \output is active
  []
@@ -637,20 +634,33 @@ Overfull \hbox (1.90002pt too wide) has occurred while \output is active
  []
  []
 
-[2] (./Ian_Fare_Weird_Star.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
+[2] (./Ian_Fare_Weird_Star.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
+
+Overfull \hbox (1.90002pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (1.90002pt too wide) has occurred while \output is active
+ []
+ []
+
+[3] (./Ian_Fare_Weird_Star.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
 Package rerunfilecheck Info: File `Ian_Fare_Weird_Star.out' has not changed.
 (rerunfilecheck)             Checksum: 67F7C19B789C62C1C220448EEE700B7F;234.
  ) 
 Here is how much of TeX's memory you used:
- 8527 strings out of 494910
- 116795 string characters out of 6179835
- 232637 words of memory out of 5000000
- 11657 multiletter control sequences out of 15000+600000
+ 8545 strings out of 494910
+ 117187 string characters out of 6179835
+ 219668 words of memory out of 5000000
+ 11670 multiletter control sequences out of 15000+600000
  66602 words of font info for 106 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 37i,11n,43p,1821b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,47p,1824b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
@@ -658,10 +668,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Ian_Fare_Weird_Star.pdf (2 pages, 72669 bytes).
+Output written on Ian_Fare_Weird_Star.pdf (3 pages, 78211 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
+ 138 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

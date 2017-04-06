@@ -4,44 +4,44 @@ The top-level auxiliary file: Ian_Fare_Weird_Star.aux
 The style file: apj.bst
 Database file #1: bibfile.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 8 entries,
+You've used 12 entries,
             3085 wiz_defined-function locations,
-            690 strings with 6202 characters,
-and the built_in function-call counts, 3961 in all, are:
-= -- 323
-> -- 295
-< -- 2
-+ -- 100
-- -- 108
-* -- 346
-:= -- 756
-add.period$ -- 8
-call.type$ -- 8
-change.case$ -- 53
-chr.to.int$ -- 8
-cite$ -- 8
-duplicate$ -- 150
-empty$ -- 228
-format.name$ -- 117
-if$ -- 780
+            717 strings with 7142 characters,
+and the built_in function-call counts, 5934 in all, are:
+= -- 481
+> -- 452
+< -- 3
++ -- 151
+- -- 165
+* -- 523
+:= -- 1135
+add.period$ -- 12
+call.type$ -- 12
+change.case$ -- 77
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 226
+empty$ -- 339
+format.name$ -- 180
+if$ -- 1169
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 28
-num.names$ -- 32
-pop$ -- 57
+missing$ -- 12
+newline$ -- 40
+num.names$ -- 48
+pop$ -- 82
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 77
 quote$ -- 0
-skip$ -- 128
+skip$ -- 190
 stack$ -- 0
-substring$ -- 179
+substring$ -- 260
 swap$ -- 0
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 108
 warning$ -- 0
-while$ -- 29
+while$ -- 43
 width$ -- 0
-write$ -- 83
+write$ -- 123

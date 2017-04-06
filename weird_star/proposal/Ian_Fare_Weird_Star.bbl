@@ -1,6 +1,16 @@
 \begin{thebibliography}{}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
+\bibitem[{Bouvier {et~al.}(2003)Bouvier, Grankin, Alencar, Dougados,
+  Fern{\'a}ndez, Basri, Batalha, Guenther, Ibrahimov, Magakian,
+  {et~al.}}]{bouvier2003eclipses}
+Bouvier, J., Grankin, K., Alencar, S., {et~al.} 2003, Astronomy \&
+  Astrophysics, 409, 169
+
+\bibitem[{D'Angelo \& Spruit(2010)}]{d2010episodic}
+D'Angelo, C.~R., \& Spruit, H.~C. 2010, Monthly Notices of the Royal
+  Astronomical Society, 406, 1208
+
 \bibitem[{Hartmann \& Kenyon(1996)}]{hartmann_fu_1996}
 Hartmann, L., \& Kenyon, S.~J. 1996, Annual Review of Astronomy and
   Astrophysics, 34, 207
@@ -13,10 +23,19 @@ Herbig, G.~H. 1977, The Astrophysical Journal, 217, 693
 Kenyon, S.~J., Kolotilov, E.~A., Ibragimov, M.~A., \& Mattei, J.~A. 2000, The
   Astrophysical Journal, 531, 1028
 
+\bibitem[{K\'{o}sp\'{a}l {et~al.}(2017)K\'{o}sp\'{a}l, \'{A}brah\'{a}m,
+  Westhues, \& Haas}]{kospal2017brightness}
+K\'{o}sp\'{a}l, A., \'{A}brah\'{a}m, P., Westhues, C., \& Haas, M. 2017,
+  Astronomy \& Astrophysics, 597, L10
+
 \bibitem[{Kraus {et~al.}(2016)Kraus, Caratti~o Garatti, Garcia-Lopez, Kreplin,
   Aarnio, Monnier, Naylor, \& Weigelt}]{kraus_v346_2016}
 Kraus, S., Caratti~o Garatti, A., Garcia-Lopez, R., {et~al.} 2016, Monthly
   Notices of the Royal Astronomical Society, 462, L61
+
+\bibitem[{Ninan {et~al.}(2015)Ninan, Ojha, Baug, Bhatt, Mohan, Ghosh,
+  Men’shchikov, Anupama, Tamura, \& Henning}]{ninan2015v899}
+Ninan, J., Ojha, D., Baug, T., {et~al.} 2015, The Astrophysical Journal, 815, 4
 
 \bibitem[{Rucinski {et~al.}(2008)Rucinski, Matthews, Kuschnig, Pojmański,
   Rowe, Guenther, Moffat, Sasselov, Walker, \&
